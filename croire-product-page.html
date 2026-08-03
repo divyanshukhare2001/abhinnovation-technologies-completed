@@ -2230,29 +2230,63 @@ ScrollTrigger.create({
 
 
 
-      document.addEventListener("DOMContentLoaded", () => {
+//       document.addEventListener("DOMContentLoaded", () => {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   const steps = gsap.utils.toArray(".phone-step");
+
+//   gsap.set(steps.slice(1), {
+//     y: 120,
+//     autoAlpha: 0
+//   });
+
+//   gsap.to(steps.slice(1), {
+//     y: 0,
+//     autoAlpha: 1,
+//     stagger: 1,
+//     ease: "none",
+//     scrollTrigger: {
+//       trigger: ".app-functions",
+//       start: "center center",
+//       end: "+=4000",
+//       pin: true,
+//       scrub: 1,
+//       snap: 1 / (steps.length - 1)
+//     }
+//   });
+// });
+
+
+
+
+
+     document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const steps = gsap.utils.toArray(".phone-step");
+  gsap.matchMedia().add("(min-width: 1025px)", () => {
 
-  gsap.set(steps.slice(1), {
-    y: 120,
-    autoAlpha: 0
-  });
+    const steps = gsap.utils.toArray(".phone-step");
 
-  gsap.to(steps.slice(1), {
-    y: 0,
-    autoAlpha: 1,
-    stagger: 1,
-    ease: "none",
-    scrollTrigger: {
-      trigger: ".app-functions",
-      start: "center center",
-      end: "+=4000",
-      pin: true,
-      scrub: 1,
-      snap: 1 / (steps.length - 1)
-    }
+    gsap.set(steps.slice(1), {
+      y: 120,
+      autoAlpha: 0
+    });
+
+    gsap.to(steps.slice(1), {
+      y: 0,
+      autoAlpha: 1,
+      stagger: 1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".app-functions",
+        start: "center center",
+        end: "+=4000",
+        pin: true,
+        scrub: 1,
+        snap: 1 / (steps.length - 1)
+      }
+    });
+
   });
 });
 </script>
