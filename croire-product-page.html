@@ -875,6 +875,7 @@
     gap: 14px;
     overflow-x: auto;
     padding-bottom: 10px;
+        overflow:hidden;
   }
 
   .phone-step { flex-shrink: 0; text-align: center; width: 80px; }
@@ -2191,6 +2192,57 @@ ScrollTrigger.create({
 
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const steps = gsap.utils.toArray(".phone-step");
+
+  gsap.set(steps.slice(1), {
+    y: 120,
+    autoAlpha: 0
+  });
+
+  gsap.to(steps.slice(1), {
+    y: 0,
+    autoAlpha: 1,
+    stagger: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".app-functions",
+      start: "center center",
+      end: "+=4000",
+      pin: true,
+      scrub: 1,
+      snap: 1 / (steps.length - 1)
+    }
+  });
+});
 </script>
 
 </body>
