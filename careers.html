@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Abhinnovation Technologies</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./header-footer.css">
+    <script>document.documentElement.classList.add("js");</script>
+<style>
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #215cff;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #215cff;
+    flex-shrink: 0;
+  }
+
+  h2.section-heading{
+    text-align: left;
+  }
+
+  /* ========================================================= */
+  /* HERO SECTION */
+  /* ========================================================= */
+
+
+  .hero-visual.careers{
+    min-height: 0;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+
+  .hero-title.careers{
+    font-size:70px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .hero-title {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.18;
+  }
+
+  .hero-title .accent {
+    color: #215cff;
+  }
+
+  .title-underline {
+    display: block;
+    width: 56px;
+    height: 4px;
+    border-radius: 2px;
+    background: #215cff;
+    margin: 20px 0 22px;
+  }
+
+  .hero-text p {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #5a6478;
+    max-width: 400px;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .hero-visual .dot-grid {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 130px;
+    height: 130px;
+    background-image: radial-gradient(rgba(33, 92, 255, 0.35) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+    z-index: 0;
+  }
+
+  .hero-visual img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+  }
+
+  .floating-card {
+    position: absolute;
+    z-index: 2;
+    left: -30px;
+    bottom: -34px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px -16px rgba(13, 23, 48, 0.22);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 260px;
+  }
+
+  .floating-card .icon-box {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #e9effe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #215cff;
+  }
+
+  .floating-card .floating-text p {
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0d1730;
+  }
+
+  .floating-card .floating-text .highlight {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #215cff;
+  }
+
+  @media (max-width: 900px) {
+    /* .hero { padding: 60px 0 90px; } */
+    .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+    .hero-title { font-size: 34px; }
+    .hero-text p { max-width: 100%; }
+    .floating-card { left: 16px; bottom: -30px; max-width: 220px; }
+  }
+
+  /* ========================================================= */
+  /* WHY JOIN US SECTION */
+  /* ========================================================= */
+
+  .why-join {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .why-join .eyebrow { justify-content: center; }
+
+
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+
+  .why-card {
+    background: #ffffff;
+    border: 1px solid rgba(33, 92, 255, 0.08);
+    border-radius: 18px;
+    padding: 28px 22px;
+    transition: transform 0.25s ease;
+  }
+
+  .why-card:hover {
+    transform: translateY(-10px);
+    box-shadow:   0 10px 30px rgba(16, 24, 40, 0.08),  0 0 0 1px rgba(33, 92, 255, 0.05),  0 0 45px rgba(33, 92, 255, 0.12);
+}
+
+  .why-card .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #e9effe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #215cff;
+  }
+
+  .why-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .why-card p {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #5a6478;
+  }
+
+  @media (max-width: 900px) {
+    /* .why-join { padding: 0 0 60px; } */
+    .why-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .why-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================================================= */
+  /* LIFE AT ABHINNOVATION SECTION */
+  /* ========================================================= */
+
+  .life-at {
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .life-at .eyebrow { justify-content: center; }
+
+
+
+  .gallery {
+    display: flex;
+    gap: 16px;
+  }
+
+  .life-at .gallery figure{
+    margin:0;
+  }
+
+  .gallery figure {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 250px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #5a6478;
+  }
+
+  .life-img-wrpr{
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+    .life-img-wrpr img{
+    transition: transform 0.25s ease;
+    }
+
+  .life-img-wrpr:hover img{
+    transform: scale(1.1);
+  }
+
+
+  @media (max-width: 900px) {
+    /* .life-at { padding: 0 0 60px; } */
+    .gallery { flex-wrap: wrap; }
+    .gallery figure { flex: 1 1 calc(50% - 8px); }
+  }
+
+  @media (max-width: 560px) {
+    .gallery figure { flex: 1 1 100%; }
+  }
+
+  /* ========================================================= */
+  /* OPEN POSITIONS SECTION */
+  /* ========================================================= */
+
+  .positions {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .positions-card {
+    background: #ffffff;
+    border-radius: 22px;
+    border: 1px solid rgba(33, 92, 255, 0.08);
+    padding: 40px 40px 16px;
+  }
+
+  .positions-header {
+    margin-bottom: 26px;
+  }
+
+  .positions-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--blue)
+  }
+
+  .positions-header p {
+    font-size: 14.5px;
+    color: #5a6478;
+  }
+
+  .job-item {
+    border-top: 1px solid #eef1f8;
+  }
+
+  .job-item:last-child {
+    border-bottom: none;
+  }
+
+  .job-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  .job-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 6px;
+  }
+
+  .job-main h3 {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .job-item.active .job-main {
+    align-items: flex-start;
+  }
+
+  .job-item.active .job-main h3 {
+    flex-basis: 100%;
+    font-size: 17px;
+    margin-bottom: 2px;
+  }
+
+  .job-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #6a7286;
+  }
+
+  .job-meta .divider {
+    color: #d7dcec;
+  }
+
+  .job-meta i { color: #9aa3ba; font-size: 12px; }
+
+  .job-toggle {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #eef1f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #0d1730;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .job-item.active .job-toggle {
+    background: #215cff;
+    color: #ffffff;
+  }
+
+  .job-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  .job-item.active .job-content {
+    grid-template-rows: 1fr;
+  }
+
+  .job-content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .job-desc-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 24px;
+  }
+
+  .job-desc-row p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5a6478;
+    max-width: 620px;
+  }
+
+  .apply-btn {
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #215cff;
+    color: #ffffff;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .apply-btn i {
+    transform: rotate(-45deg);
+    font-size: 12px;
+  }
+
+  @media (max-width: 700px) {
+    /* .positions { padding: 0 0 60px; } */
+    .positions-card { padding: 30px 22px 10px; }
+    .job-desc-row { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ========================================================= */
+  /* APPLY MODAL */
+  /* ========================================================= */
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 23, 48, 0.55);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-box {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 28px 28px;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #eef1f8;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    color: #5a6478;
+  }
+
+  .modal-box h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    padding-right: 30px;
+  }
+
+  .modal-box .modal-subtitle {
+    font-size: 13.5px;
+    color: #5a6478;
+    margin-bottom: 24px;
+  }
+
+  .modal-field {
+    margin-bottom: 18px;
+  }
+
+  .modal-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .modal-field input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #dfe4f0;
+    font-size: 14px;
+    font-family: inherit;
+    color: #0d1730;
+  }
+
+  .modal-field input[readonly] {
+    background: #f6f8fd;
+    color: #5a6478;
+  }
+
+  .modal-field input[type="text"]:focus {
+    outline: none;
+    border-color: #215cff;
+  }
+
+  .file-drop {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px dashed #c6cfe6;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #5a6478;
+    cursor: pointer;
+  }
+
+  .file-drop i { color: #215cff; }
+
+  .file-drop input[type="file"] {
+    display: none;
+  }
+
+  .modal-submit {
+    width: 100%;
+    background: #215cff;
+    color: #ffffff;
+    border: none;
+    padding: 13px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 500px) {
+    .modal-box { padding: 26px 20px 24px; }
+  }
+</style>
+</head>
+<body>
+
+    <header class="site-header" id="site-header">
+      <div class="nav-shell">
+        <a
+          class="brand"
+          href="./index.html"
+          aria-label="Abhinnovation Technologies home"
+        >
+          <img
+            src="./assets/atpl-icon-bg-rm.svg"
+            alt=""
+            width="45"
+            height="44"
+          />
+          <span class="brand-name">
+            <strong>Abhinnovation</strong>
+            <span>Technologies Pvt. Ltd.</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="primary-nav" id="primary-navigation">
+            <li>
+              <a class="nav-link" href="./index.html" aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle active"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Services <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="services-menu">
+                <li>
+                  <a href="./hero-biometric.html" class="active"
+                    >Mobile & tab based biometric service</a
+                  >
+                </li>
+                <li>
+                  <a href="#assessment-services"
+                    >Exam infrastructure management</a
+                  >
+                </li>
+                <li><a href="#custom-software">Technical manpower</a></li>
+                <li>
+                  <a href="#custom-software"
+                    >CBT / IBT / PBT / TBT proctoring test service</a
+                  >
+                </li>
+                <li>
+                  <a href="#custom-software">Custom software development</a>
+                </li>
+                <li><a href="#custom-software">Assessment services</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="solutions-menu"
+              >
+                Solutions <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="solutions-menu">
+                <li><a href="./croire-product-page.html">Croire</a></li>
+                <li><a href="#abhiconnect">Insta Enroll</a></li>
+                <li><a href="#veda">Anmelde</a></li>
+                <li><a href="#anmelde">Kovantis</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link active" href="#">Careers</a></li>
+            <li><a class="nav-link" href="./contact.html">Contact</a></li>
+            <li class="mobile-nav-cta">
+              <button class="button button-sm nav-cta demo-btn">
+                Ask for Demo ↗
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="button button-sm nav-cta demo-btn">
+          Ask for Demo
+          <span aria-hidden="true"
+            ><i
+              class="fa-solid fa-arrow-up-right-from-square"
+              style="color: rgb(255, 255, 255)"
+            ></i
+          ></span>
+        </button>
+      </div>
+    </header>
+
+<div class="modal-overlay" id="applyModal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    <h3>Apply Now</h3>
+    <p class="modal-subtitle">Fill in your details and we'll get back to you.</p>
+    <form action="https://usebasin.com/f/ab33c16bc392" method="POST" enctype="multipart/form-data" id="form" 
+   >
+      <div class="modal-field">
+        <label for="applicantName">Full Name</label>
+        <input type="text" id="applicantName" name="name" placeholder="Enter your full name" required>
+      </div>
+      
+      <div class="modal-field">
+        <label for="applicantEmail">Email ID</label>
+        <input type="text" id="applicanteEmail" name="email" placeholder="Enter your email address" required>
+      </div>
+
+      <div class="modal-field">
+        <label for="applicantRole">Job Title</label>
+        <input type="text" id="applicantRole" name="role" readonly>
+      </div>
+      <div class="modal-field">
+        <label for="applicantResume">Resume / CV</label>
+        <label class="file-drop" id="fileDropLabel">
+          <i class="fa-solid fa-paperclip"></i>
+          <span id="fileDropText">Upload PDF or Word document</span>
+          <input type="file" id="applicantResume" name="resume" accept=".pdf,.doc,.docx" required>
+        </label>
+      </div>
+      <button type="submit" class="modal-submit">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text reveal">
+        <span class="eyebrow"><span class="dot"></span>CAREERS</span>
+        <h1 class="hero-title careers">Build the future<br>with <span class="accent">us</span></h1>
+        <span class="title-underline"></span>
+        <p>At Abhinnovation, we believe great people create extraordinary solutions. Join our team and be a part of a journey that inspires growth, innovation and impact.</p>
+      </div>
+      <div class="hero-visual careers">
+        <span class="dot-grid"></span>
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Team collaborating in the office">
+        <div class="floating-card">
+          <div class="icon-box"><i class="fa-solid fa-user-group"></i></div>
+          <div class="floating-text">
+            <p>Great people.<br>Meaningful impact.</p>
+            <span class="highlight">Limitless possibilities.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-join">
+  <div class="container">
+
+            <div class="header-row">
+      <div>
+        <div class="section-title">WHY JOIN US</div>
+        <h2 class="section-heading">More than a <span>workplace</span></h2>
+      </div>
+      
+    </div>
+    <div class="why-grid reveal">
+
+      <div class="why-card">
+        <div class="icon-circle"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Growth &amp; Learning</h3>
+        <p>Continuous learning opportunities and career growth are at the heart of what we do.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon-circle"><i class="fa-solid fa-people-group"></i></div>
+        <h3>Collaborative Culture</h3>
+        <p>Work with talented people in a supportive and collaborative environment.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon-circle"><i class="fa-solid fa-heart"></i></div>
+        <h3>Well-being First</h3>
+        <p>We prioritize the health, happiness and well-being of our team members.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="icon-circle"><i class="fa-solid fa-trophy"></i></div>
+        <h3>Meaningful Impact</h3>
+        <p>Create solutions that make a real difference for clients and communities.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="life-at">
+  <div class="container">
+
+                <div class="header-row">
+      <div>
+        <div class="section-title">LIFE AT ABHINNOVATION</div>
+        <h2 class="section-heading">A <span>glimpse</span> into our world</h2>
+      </div>
+      
+    </div>
+    <div class="gallery reveal">
+      <figure>
+        <div class="life-img-wrpr">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80" alt="Collaborative culture">
+        </div>
+        <figcaption>Collaborative culture</figcaption>
+      </figure>
+      <figure>
+        <div class="life-img-wrpr">
+        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=500&q=80" alt="Team celebrations">
+        </div>
+        <figcaption>Team celebrations</figcaption>
+      </figure>
+      <figure>
+        <div class="life-img-wrpr">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Modern workspace">
+        </div>
+        <figcaption>Modern workspace</figcaption>
+      </figure>
+      <figure>
+        <div class="life-img-wrpr">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80" alt="Work-life balance">
+        </div>
+        <figcaption>Work-life balance</figcaption>
+      </figure>
+      <figure>
+        <div class="life-img-wrpr">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=500&q=80" alt="One team, one vision">
+        </div>
+        <figcaption>One team, one vision</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="positions">
+  <div class="container">
+    <div class="positions-card">
+      <div class="positions-header">
+        <h2>Open Positions</h2>
+        <p>Explore exciting career opportunities and find your next adventure with us.</p>
+      </div>
+
+      <div class="job-list">
+
+        <div class="job-item active">
+          <button class="job-trigger">
+            <div class="job-main">
+              <h3>Software Engineer</h3>
+              <div class="job-meta">
+                <span><i class="fa-solid fa-briefcase"></i>Engineering</span>
+                <span class="divider">|</span>
+                <span><i class="fa-solid fa-location-dot"></i>Bhopal, India</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-clock"></i>2–4 Years</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-building"></i>Full-time</span>
+              </div>
+            </div>
+            <span class="job-toggle"><i class="fa-solid fa-minus"></i></span>
+          </button>
+          <div class="job-content">
+            <div class="job-content-inner">
+              <div class="job-desc-row">
+                <p>We are looking for a passionate Software Engineer to design, develop and maintain high-quality applications. You will work with modern technologies and collaborate with cross-functional teams to deliver impactful solutions.</p>
+                <button type="button" class="apply-btn" data-job="Software Engineer">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-item">
+          <button class="job-trigger">
+            <div class="job-main">
+              <h3>UI/UX Designer</h3>
+              <div class="job-meta">
+                <span><i class="fa-solid fa-briefcase"></i>Design</span>
+                <span class="divider">|</span>
+                <span><i class="fa-solid fa-location-dot"></i>Bhopal, India</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-clock"></i>2–4 Years</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-building"></i>Full-time</span>
+              </div>
+            </div>
+            <span class="job-toggle"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="job-content">
+            <div class="job-content-inner">
+              <div class="job-desc-row">
+                <p>We are looking for a UI/UX Designer who can craft clean, intuitive interfaces and elevate the overall product experience across our platforms.</p>
+                <button type="button" class="apply-btn" data-job="UI/UX Designer">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-item">
+          <button class="job-trigger">
+            <div class="job-main">
+              <h3>Business Analyst</h3>
+              <div class="job-meta">
+                <span><i class="fa-solid fa-briefcase"></i>Business</span>
+                <span class="divider">|</span>
+                <span><i class="fa-solid fa-location-dot"></i>Bhopal, India</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-clock"></i>1–3 Years</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-building"></i>Full-time</span>
+              </div>
+            </div>
+            <span class="job-toggle"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="job-content">
+            <div class="job-content-inner">
+              <div class="job-desc-row">
+                <p>We are looking for a Business Analyst who can bridge business needs and technical solutions across our client projects.</p>
+                <button type="button" class="apply-btn" data-job="Business Analyst">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="job-item">
+          <button class="job-trigger">
+            <div class="job-main">
+              <h3>QA Engineer</h3>
+              <div class="job-meta">
+                <span><i class="fa-solid fa-briefcase"></i>Quality Assurance</span>
+                <span class="divider">|</span>
+                <span><i class="fa-solid fa-location-dot"></i>Bhopal, India</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-clock"></i>1–3 Years</span>
+                <span class="divider">|</span>
+                <span><i class="fa-regular fa-building"></i>Full-time</span>
+              </div>
+            </div>
+            <span class="job-toggle"><i class="fa-solid fa-plus"></i></span>
+          </button>
+          <div class="job-content">
+            <div class="job-content-inner">
+              <div class="job-desc-row">
+                <p>We are looking for a QA Engineer to design test plans, execute test cases, and ensure the quality and reliability of our applications.</p>
+                <button type="button" class="apply-btn" data-job="QA Engineer">Apply Now <i class="fa-solid fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-name">Abhinnovation</p>
+            <p class="footer-brand-subtitle">Technologies Pvt. Ltd.</p>
+            <p class="footer-summary">
+              Building secure biometric, iris recognition, and enterprise software solutions that
+              empower governments, institutions, and businesses to operate with confidence.
+            </p>
+            <ul class="footer-socials">
+              <li><a href="https://www.linkedin.com/company/abhinnovation-technologies-pvt-ltd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="./index.html#about">About Us</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Services</h2>
+            <ul>
+              <li><a href="#biometric-services">Mobile & tab based biometric service</a></li>
+              <li><a href="#assessment-services">Exam infrastructure management</a></li>
+              <li><a href="#custom-software">Technical manpower</a></li>
+              <li><a href="#digital-transformation">CBT / IBT / PBT / TBT proctoring test service</a></li>
+              <li><a href="#digital-transformation">Custom software development</a></li>
+              <li><a href="#digital-transformation">Assessment services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Solutions</h2>
+            <ul>
+              <li><a href="#croire">Croire</a></li>
+              <li><a href="#abhiconnect">Insta Enroll</a></li>
+              <li><a href="#veda">Anmelde</a></li>
+              <li><a href="#anmelde">Kovantis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h2>Get in Touch</h2>
+            <ul class="footer-contact-list">
+              <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="mailto:info@abhinnovation.com">info@abhinnovation.com</a></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:011-45681617">011-45681617</a></li>
+              <li><i class="fa-solid fa-globe" aria-hidden="true"></i><a href="https://abhinnovation.com/" target="_blank" rel="noopener noreferrer">www.abhinnovation.com</a></li>
+            </ul>
+            <h2 class="footer-office-title">Registered Office</h2>
+            <address>
+              Abhinnovation Technologies<br>
+Plot No RZ B-4, GF, Raghu Nagar Near Janakpuri South/Dabri Metro, Pankha Road, New Delhi - 110045
+
+
+            </address>
+          </div>
+        </div>
+
+        <p class="footer-copyright">&copy; 2026 Abhinnovation Technologies Pvt. Ltd. All rights reserved.</p>
+      </div>
+    </footer>
+
+          <!-- Demo Modal -->
+<div id="demo-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button id="close-modal" class="close-btn">&times;</button>
+    
+    <!-- STEP 1: Quick Details Form -->
+    <div id="form-step">
+      <h2>Request a Product Demo</h2>
+      <p>Tell us what you're interested in, then pick a time that works for you.</p>
+      
+      <form id="demo-form">
+        <div class="form-group">
+          <label for="user-name">Full Name *</label>
+          <input type="text" id="user-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="user-email">Work Email *</label>
+          <input type="email" id="user-email" required placeholder="john@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="product-select">Product of Interest *</label>
+          <select id="product-select" required>
+            <option value="" disabled selected>Select product...</option>
+            <option value="Croire">Croire</option>
+            <option value="Insta Enroll">Insta Enroll</option>
+            <option value="Anmelde">Anmelde</option>
+            <option value="Kovantis">Kovantis</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="company-name">Company Name (Optional)</label>
+          <input type="text" id="company-name" placeholder="Acme Corp">
+        </div>
+
+        <button type="submit" class="submit-btn">Next: Pick a Time &rarr;</button>
+      </form>
+    </div>
+
+    <!-- STEP 2: Calendly Inline Container (Hidden initially) -->
+    <div id="calendar-step" style="display: none;">
+      <h2>Select Date & Time</h2>
+      <div id="calendly-embed" style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+ 
+    <script src="./product-demo-calendly.js" defer></script>
+<script src="./header.js"></script>  
+<script src="./reveal.js"></script>  
+<script>
+  document.querySelectorAll('.job-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      const item = trigger.closest('.job-item');
+      const wasActive = item.classList.contains('active');
+
+      document.querySelectorAll('.job-item').forEach(function (el) {
+        el.classList.remove('active');
+        el.querySelector('.job-toggle i').className = 'fa-solid fa-plus';
+      });
+
+      if (!wasActive) {
+        item.classList.add('active');
+        item.querySelector('.job-toggle i').className = 'fa-solid fa-minus';
+      }
+    });
+  });
+
+  // apply modal
+  const applyModal = document.getElementById('applyModal');
+  const applyForm = document.getElementById('applyForm');
+  const roleInput = document.getElementById('applicantRole');
+  const fileInput = document.getElementById('applicantResume');
+  const fileText = document.getElementById('fileDropText');
+
+  document.querySelectorAll('.apply-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      roleInput.value = btn.dataset.job;
+      applyModal.classList.add('active');
+    });
+  });
+
+  function closeModal() {
+    applyModal.classList.remove('active');
+    applyForm.reset();
+    fileText.textContent = 'Upload PDF or Word document';
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  applyModal.addEventListener('click', function (e) {
+    if (e.target === applyModal) closeModal();
+  });
+
+  fileInput.addEventListener('change', function () {
+    fileText.textContent = fileInput.files[0] ? fileInput.files[0].name : 'Upload PDF or Word document';
+  });
+
+  applyForm.addEventListener('submit', function (e) {
+    // e.preventDefault();
+    closeModal();
+  });
+</script>
+
+</body>
+</html>

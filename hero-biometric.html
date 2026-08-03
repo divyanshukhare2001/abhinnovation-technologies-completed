@@ -1,0 +1,1695 @@
+<!-- ============================================================
+  Hero: Mobile & Tablet Based Biometric Services
+  Structure: section > .container  (no horizontal padding / max-width
+  applied here — inherited from project-wide CSS, per spec)
+  Fonts: Sora (display) + Inter (body) via Google Fonts
+  Icons: Font Awesome via CDN
+  Image: replace src at images/fingerprint-scan.jpg with the final
+  optimized asset in your project's image directory
+============================================================= -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./header-footer.css" />
+
+    <style>
+      /* ---- Hero Biometric Section ---- */
+      .hero-bio {
+        position: relative;
+        background:
+          radial-gradient(
+            120% 90% at 82% 12%,
+            rgba(33, 92, 255, 0.35) 0%,
+            rgba(33, 92, 255, 0) 55%
+          ),
+          radial-gradient(
+            90% 70% at 8% 100%,
+            rgba(53, 224, 208, 0.14) 0%,
+            rgba(53, 224, 208, 0) 60%
+          ),
+          linear-gradient(180deg, #060a1a 0%, #0a1130 55%, #0f1a45 100%);
+        color: #f5f7ff;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      .hero-bio__scanlines {
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      .hero-bio__inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: center;
+        gap: clamp(2.5rem, 5vw, 4rem);
+        padding: clamp(4.5rem, 9vw, 7.5rem) 0 clamp(6rem, 10vw, 9rem);
+      }
+
+      /* ---------------- Content ---------------- */
+
+      .hero-bio__content {
+        max-width: 640px;
+      }
+
+      .hero-bio__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.5rem 1rem 0.5rem 0.75rem;
+        margin-bottom: 1.75rem;
+        border: 1px solid rgba(75, 125, 255, 0.4);
+        border-radius: 999px;
+        background: rgba(33, 92, 255, 0.12);
+        backdrop-filter: blur(6px);
+        color: #c7d6ff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-bio__badge .hero-bio__badge-dot {
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #35e0d0;
+        box-shadow: 0 0 0 4px rgba(53, 224, 208, 0.18);
+      }
+
+      .hero-bio__heading {
+        margin: 0 0 1.5rem;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(2.1rem, 4vw, 3.4rem);
+        font-weight: 700;
+        line-height: 1.14;
+        letter-spacing: -0.015em;
+      }
+
+      .hero-bio__heading span {
+        background: linear-gradient(97deg, #4b7dff 0%, #35e0d0 100%);
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+      }
+
+      .hero-bio__desc {
+        max-width: 560px;
+        margin: 0 0 2.5rem;
+        color: rgba(226, 232, 255, 0.68);
+        font-size: clamp(1rem, 1.1vw, 1.09rem);
+        line-height: 1.7;
+      }
+
+      .hero-bio__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.75rem;
+      }
+
+      .hero-bio__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.9rem 1.7rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .hero-bio__btn--primary {
+        border: 1px solid transparent;
+        background: linear-gradient(97deg, #215cff 0%, #4b7dff 100%);
+        color: #ffffff;
+        box-shadow: 0 10px 24px -8px rgba(33, 92, 255, 0.65);
+      }
+
+      .hero-bio__btn--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px -8px rgba(33, 92, 255, 0.8);
+      }
+
+      .hero-bio__btn--ghost {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: transparent;
+        color: #f5f7ff;
+      }
+
+      .hero-bio__btn--ghost:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-2px);
+      }
+
+      .hero-bio__stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(1.5rem, 3vw, 2.75rem);
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-bio__stat-value {
+        margin-bottom: 0.4rem;
+        color: #f5f7ff;
+        font-family: "Sora", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .hero-bio__stat-label {
+        color: rgba(226, 232, 255, 0.68);
+        font-size: 0.8rem;
+        letter-spacing: 0.01em;
+      }
+
+      /* ---------------- Visual / Scanner ---------------- */
+
+      .hero-bio__visual {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        aspect-ratio: 1 / 1;
+      }
+
+      .hero-bio__ring {
+        position: absolute;
+        border: 1px solid rgba(75, 125, 255, 0.28);
+        border-radius: 50%;
+      }
+
+      .hero-bio__ring--1 {
+        inset: 0;
+      }
+
+      .hero-bio__ring--2 {
+        inset: 9%;
+        border-color: rgba(75, 125, 255, 0.2);
+      }
+
+      .hero-bio__ring--3 {
+        inset: 18%;
+        border-color: transparent;
+        border-top-color: #35e0d0;
+        border-right-color: #35e0d0;
+        opacity: 0.75;
+        animation: bio-spin 7s linear infinite;
+      }
+
+      .hero-bio__tick {
+        position: absolute;
+        inset: 0;
+        animation: bio-spin 60s linear infinite;
+      }
+
+      .hero-bio__tick::before,
+      .hero-bio__tick::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .hero-bio__tick::before {
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 10px;
+        transform: translateX(-50%);
+      }
+
+      .hero-bio__tick::after {
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+        height: 10px;
+        transform: translateX(-50%);
+      }
+
+      .hero-bio__frame {
+        position: relative;
+        width: 74%;
+        overflow: hidden;
+        border: 1px solid rgba(75, 125, 255, 0.45);
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        box-shadow:
+          0 0 0 10px rgba(6, 10, 26, 0.6),
+          0 25px 60px -15px rgba(0, 0, 0, 0.7),
+          0 0 70px -10px rgba(33, 92, 255, 0.45);
+      }
+
+      .hero-bio__frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(1.05) contrast(1.05);
+      }
+
+      .hero-bio__scan-sweep {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background: linear-gradient(
+          180deg,
+          rgba(53, 224, 208, 0) 0%,
+          rgba(53, 224, 208, 0.35) 50%,
+          rgba(53, 224, 208, 0) 100%
+        );
+        animation: bio-sweep 3.2s ease-in-out infinite;
+      }
+
+      .hero-bio__badge-chip {
+        position: absolute;
+        bottom: -6%;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1rem;
+        border: 1px solid rgba(53, 224, 208, 0.4);
+        border-radius: 999px;
+        background: rgba(10, 17, 48, 0.85);
+        backdrop-filter: blur(8px);
+        color: #d9fff9;
+        font-size: 0.78rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transform: translateX(-50%);
+        box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.6);
+      }
+
+      .hero-bio__badge-chip i {
+        color: #35e0d0;
+        font-size: 0.7rem;
+      }
+
+      @keyframes bio-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes bio-sweep {
+        0% {
+          top: -10%;
+          opacity: 0;
+        }
+
+        15% {
+          opacity: 1;
+        }
+
+        85% {
+          opacity: 1;
+        }
+
+        100% {
+          top: 100%;
+          opacity: 0;
+        }
+      }
+
+      /* Bottom transition curve into next light section */
+
+      .hero-bio__divider {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        line-height: 0;
+      }
+
+      .hero-bio__divider svg {
+        display: block;
+        width: 100%;
+        height: clamp(40px, 6vw, 80px);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-bio__ring--3,
+        .hero-bio__tick,
+        .hero-bio__scan-sweep {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 991px) {
+        .hero-bio__inner {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+
+        .hero-bio__visual {
+          order: -1;
+          max-width: 380px;
+        }
+
+        .hero-bio__content {
+          max-width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 767px) {
+        .hero-bio__content {
+          text-align: center;
+        }
+
+        .hero-bio__stats {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .hero-bio__actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-bio__btn {
+          justify-content: center;
+        }
+
+        .hero-bio__stats {
+          gap: 1.5rem;
+        }
+      }
+
+      /* sevice-about-section */
+
+      @media only screen and (min-width:768px){
+              .about-showcase.service .about-visual{
+            max-height: 80%;
+    align-self: end;
+      }
+      }
+
+
+      
+      .about-showcase.service .about-intro{
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+
+      @media only screen and (max-width:767px){
+        .about-showcase.service .about-intro{
+        grid-template-columns: 1fr;
+      }
+      }
+
+
+      /* card-stack-section */
+
+
+.stack-section{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+       .stack-wrap {
+    position: relative;
+  }
+
+  .card-sticky {
+    position: sticky;
+    padding-bottom: 40px;
+  }
+
+  .card {
+    position: relative;
+    height: 320px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(15, 21, 33, 0.25);
+    background-size: cover;
+    background-position: center;
+    transform-origin: center top;
+    will-change: transform, filter;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 10, 20, 0.55) 0%, rgba(6, 10, 20, 0.15) 35%, rgba(6, 10, 20, 0.75) 100%);
+  }
+
+  /* top-right circular arrow button */
+  .card-badge-icon {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #12203f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 22px;
+    z-index: 2;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  /* bottom-left partner style badge */
+  .card-badge-tag {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 10px;
+    z-index: 2;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-badge-tag i {
+    color: #215cff;
+    font-size: 18px;
+  }
+
+  .card-badge-tag div {
+    line-height: 1.1;
+  }
+
+  .card-badge-tag strong {
+    display: block;
+    font-size: 12px;
+    color: #0f1521;
+  }
+
+  .card-badge-tag small {
+    font-size: 10px;
+    color: #6b7280;
+    letter-spacing: 0.5px;
+  }
+
+  /* heading over image */
+  .card-title {
+    position: absolute;
+    top: 46px;
+    left: 40px;
+    right: 40px;
+    max-width: 460px;
+    z-index: 2;
+  }
+
+  .card-title h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+  }
+
+  /* white description box bottom-right */
+  .card-info {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    left: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    background: #ffffff47;
+    border-radius: 20px;
+    padding: 16px 18px;
+    z-index: 2;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-info-holder{
+        background: #ffffff;
+    border-radius: 30px;
+    padding: 20px 28px;
+  }
+
+  .card-info p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #2b3140;
+    margin-bottom: 14px;
+  }
+
+  .card-info p:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-info .highlight {
+    color: #ff3d78;
+    font-weight: 600;
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    .card { height: 420px; border-radius: 20px; }
+    .card-title { left: 24px; right: 24px; top: 32px; }
+    .card-title h3 { font-size: 24px; }
+    .card-info { left: 20px; right: 20px; bottom: 75px; max-width: none; padding: 20px; }
+    .card-info p{font-size: 15px}
+    .card-badge-tag small { display: none; }
+    .stack-heading h2 { font-size: 28px; }
+    .card-badge-icon{
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none !important; }
+  }
+
+
+  /* why-choose-us-section */
+
+    .why-choose {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    overflow: hidden;
+  }
+
+
+  /* ---- Cards grid ---- */
+  .why-choose .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .why-choose .card {
+    position: relative;
+    background: linear-gradient(160deg, rgba(33, 92, 255, 0.06) 0%, rgba(255, 255, 255, 0.9) 55%);
+    border: 1px solid rgba(33, 92, 255, 0.14);
+    border-radius: 28px;
+    padding: 44px 34px 38px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  }
+
+  .why-choose .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px -20px rgba(33, 92, 255, 0.28);
+    border-color: rgba(33, 92, 255, 0.32);
+  }
+
+  /* middle card offset for asymmetry */
+  .why-choose .card-2 {
+    transform: translateY(30px);
+  }
+  .why-choose .card-2:hover {
+    transform: translateY(20px) translateY(-10px);
+  }
+
+  /* cursor-follow glow */
+  .why-choose .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(320px circle at var(--x, 50%) var(--y, 50%), rgba(33, 92, 255, 0.14), transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .why-choose .card:hover::before {
+    opacity: 1;
+  }
+
+  .why-choose .card-number {
+    position: absolute;
+    top: 6px;
+    right: 22px;
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    background: linear-gradient(160deg, rgba(33, 92, 255, 0.45) 0%, rgba(33, 92, 255, 0.08) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(33, 92, 255, 0.3);
+    transition: transform 0.35s ease;
+  }
+
+  .why-choose .card:hover .card-number {
+    transform: scale(1.06);
+  }
+
+  .why-choose .card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: rgba(33, 92, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-choose .card-icon i {
+    font-size: 22px;
+    color: #215cff;
+  }
+
+  .why-choose .card h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #0d1730;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-choose .card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #545e73;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 900px) {
+    /* .why-choose { padding: 80px 0; } */
+    .why-choose .section-title { font-size: 30px; }
+
+    .why-choose .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
+    .why-choose .card-2 {
+      transform: none;
+    }
+    .why-choose .card-2:hover {
+      transform: translateY(-10px);
+    }
+  }
+
+
+
+
+    /* ========================================================= */
+  /* FAQ SECTION */
+  /* ========================================================= */
+
+  .faq-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #1a1330;
+  }
+
+
+
+       .faq-section .header-row .section-heading{
+      color: #ffffff;
+    }
+
+  .faq-section .eyebrow {
+    color: #a78bfa;
+  }
+
+
+
+  .faq-section .accordion-item {
+    background: #241a42;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-section .accordion-item.active {
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.55);
+  }
+
+  .faq-section .accordion-trigger {
+    color: #ffffff;
+  }
+
+  .faq-section .accordion-trigger .icon-wrap {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-section .accordion-trigger .icon-wrap i {
+    color: #a78bfa;
+  }
+
+  .faq-section .accordion-item.active .accordion-trigger .icon-wrap {
+    background: #8b5cf6;
+  }
+
+  .faq-section .accordion-content-inner p {
+    color: #b3a8ce;
+  }
+
+ 
+
+  .accordion {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .accordion-item {
+    background: #ffffff;
+    border: 1px solid rgba(33, 92, 255, 0.14);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .accordion-item.active {
+    border-color: rgba(33, 92, 255, 0.35);
+    box-shadow: 0 20px 40px -24px rgba(33, 92, 255, 0.35);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d1730;
+  }
+
+  .accordion-trigger .icon-wrap {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(33, 92, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.35s ease, background 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-trigger .icon-wrap {
+    background: #215cff;
+    transform: rotate(135deg);
+  }
+
+  .accordion-trigger .icon-wrap i {
+    font-size: 13px;
+    color: #215cff;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-trigger .icon-wrap i {
+    color: #ffffff;
+  }
+
+  /* smooth open/close via grid-template-rows, no JS height calc needed */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  .accordion-item.active .accordion-content {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion-content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .accordion-content-inner p {
+    padding: 0 26px 22px;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #545e73;
+  }
+
+  @media (max-width: 900px) {
+    /* .faq-section { padding: 70px 0 90px; } */
+    .faq-section .section-title { font-size: 30px; }
+  }
+
+    </style>
+  </head>
+  <body class="dark">
+    <header class="site-header" id="site-header">
+      <div class="nav-shell">
+        <a
+          class="brand"
+          href="./index.html"
+          aria-label="Abhinnovation Technologies home"
+        >
+          <img
+            src="./assets/atpl-icon-bg-rm.svg"
+            alt=""
+            width="45"
+            height="44"
+          />
+          <span class="brand-name">
+            <strong>Abhinnovation</strong>
+            <span>Technologies Pvt. Ltd.</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="primary-nav" id="primary-navigation">
+            <li>
+              <a class="nav-link" href="./index.html" aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle active"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Services <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="services-menu">
+                <li>
+                  <a href="./hero-biometric.html" class="active"
+                    >Mobile & tab based biometric service</a
+                  >
+                </li>
+                <li>
+                  <a href="#assessment-services"
+                    >Exam infrastructure management</a
+                  >
+                </li>
+                <li><a href="#custom-software">Technical manpower</a></li>
+                <li>
+                  <a href="#custom-software"
+                    >CBT / IBT / PBT / TBT proctoring test service</a
+                  >
+                </li>
+                <li>
+                  <a href="#custom-software">Custom software development</a>
+                </li>
+                <li><a href="#custom-software">Assessment services</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="solutions-menu"
+              >
+                Solutions <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="solutions-menu">
+                <li><a href="./croire-product-page.html">Croire</a></li>
+                <li><a href="#abhiconnect">Insta Enroll</a></li>
+                <li><a href="#veda">Anmelde</a></li>
+                <li><a href="#anmelde">Kovantis</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="./careers.html">Careers</a></li>
+            <li><a class="nav-link" href="./contact.html">Contact</a></li>
+            <li class="mobile-nav-cta">
+              <button class="button button-sm nav-cta demo-btn">
+                Ask for Demo ↗
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="button button-sm nav-cta demo-btn">
+          Ask for Demo
+          <span aria-hidden="true"
+            ><i
+              class="fa-solid fa-arrow-up-right-from-square"
+              style="color: rgb(255, 255, 255)"
+            ></i
+          ></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-bio">
+        <div class="hero-bio__scanlines" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="hero-bio__inner">
+            <!-- Content -->
+            <div class="hero-bio__content">
+              <span class="hero-bio__badge">
+                <span class="hero-bio__badge-dot" aria-hidden="true"></span>
+                Enterprise Biometric Solutions
+              </span>
+
+              <h1 class="hero-bio__heading">
+                Mobile &amp; Tablet Based <span>Biometric Solutions</span> Built
+                for Modern Organizations
+              </h1>
+
+              <p class="hero-bio__desc">
+                Empower your organization with secure, AI-powered biometric
+                solutions that simplify attendance management, identity
+                verification, and workforce operations. Our mobile and
+                tablet-based biometric services combine facial recognition,
+                fingerprint authentication, iris verification, and cloud
+                technology to deliver fast, reliable, and scalable identity
+                management for organizations of every size.
+              </p>
+
+              <div class="hero-actions">
+                <a class="button button-ghost dark" href="#solutions"
+                  >Explore Our Product
+                  <span aria-hidden="true"
+                    ><i
+                      class="fa-solid fa-arrow-up-right-from-square"
+                    ></i></span
+                ></a>
+              </div>
+
+              <div class="hero-bio__stats">
+                <div>
+                  <div class="hero-bio__stat-value">4-in-1</div>
+                  <div class="hero-bio__stat-label">
+                    Face, fingerprint, iris &amp; cloud
+                  </div>
+                </div>
+                <div>
+                  <div class="hero-bio__stat-value">Real-time</div>
+                  <div class="hero-bio__stat-label">
+                    Attendance &amp; verification
+                  </div>
+                </div>
+                <div>
+                  <div class="hero-bio__stat-value">Any Device</div>
+                  <div class="hero-bio__stat-label">
+                    Mobile &amp; tablet ready
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual: fingerprint scanner -->
+            <div class="hero-bio__visual">
+              <div
+                class="hero-bio__ring hero-bio__ring--1"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="hero-bio__ring hero-bio__ring--2"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="hero-bio__ring hero-bio__ring--3"
+                aria-hidden="true"
+              ></div>
+              <div class="hero-bio__tick" aria-hidden="true"></div>
+
+              <div class="hero-bio__frame">
+                <img
+                  src="./assets/services/fingerprint-scan.jpg"
+                  alt="Illuminated fingerprint being read by a biometric scanner"
+                />
+                <div class="hero-bio__scan-sweep" aria-hidden="true"></div>
+              </div>
+
+              <span class="hero-bio__badge-chip">
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                Verified in real time
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-bio__divider" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"
+              fill="#ffffff"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <section class="about-showcase service" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about-intro">
+            <div class="about-copy">
+              <p class="section-title">About The Service</p>
+              <h2 id="about-title" class="section-heading">
+                Empowering Assessments with Intelligent Biometric Solutions
+              </h2>
+              <span class="section-heading-line" aria-hidden="true"></span>
+              <p>
+                Our Mobile & Tablet Based Biometric Service transforms Android
+                devices into powerful biometric workstations capable of
+                performing attendance management, employee verification, student
+                enrollment, candidate authentication, and workforce tracking
+                without relying on expensive fixed biometric terminals.
+              </p>
+              <p>
+                Our solution supports seamless integration with existing
+                enterprise systems while providing real-time data
+                synchronization, centralized monitoring, and enhanced
+                operational control.
+              </p>
+              <p>
+                Whether you manage thousands of employees across multiple
+                locations or conduct large-scale examination processes, our
+                biometric services deliver accuracy, speed, and reliability at
+                every stage.
+              </p>
+            </div>
+
+            <div
+              class="about-visual"
+              aria-label="Business professional reviewing technology analytics"
+            >
+              <img
+                src="./assets/iris-scan.jpg"
+                alt="Analytics dashboard displayed on a laptop"
+              />
+              <span class="about-visual-accent" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="test" style="background-color: #35e0d0; height: 300vh;"></section> -->
+
+<section class="stack-section">
+  <div class="container">
+    <div class="header-row">
+      <div>
+        <div class="section-title">Core Capabilities</div>
+        <h2 class="section-heading">Powering <span>Modern <br>Biometric</span> Operations</h2>
+      </div>
+      
+    </div>
+
+    <div class="stack-wrap" id="stackWrap">
+
+      <div class="card-sticky" style="top:24px;">
+        <div class="card" data-bg="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>AI Facial Recognition</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Deliver fast, contactless identity verification using intelligent facial recognition capable of accurately identifying users across different environments and lighting conditions.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sticky" style="top:54px;">
+        <div class="card" data-bg="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1600&q=80">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Fingerprint Authentication</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Support secure attendance and identity verification through STQC-certified fingerprint scanners for highly reliable biometric authentication.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sticky" style="top:84px;">
+        <div class="card" data-bg="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1600&q=80">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Iris Recognition</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Enable one of the most secure biometric authentication methods available, providing exceptional accuracy for high-security applications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-sticky" style="top:114px;">
+        <div class="card" data-bg="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Mobile & Tablet Operations</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Capture attendance, perform verification, and enroll users directly from Android smartphones and tablets, eliminating dependence on traditional biometric terminals.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-sticky" style="top:144px;">
+        <div class="card" data-bg="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1600&q=80">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Cloud Synchronization</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Automatically synchronize attendance and biometric records with centralized cloud infrastructure, enabling real-time monitoring across all locations.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-sticky" style="top:174px;">
+        <div class="card" data-bg="./assets/service-bg-1.jpg">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Offline Data<br> Capture</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Continue biometric operations without internet connectivity. Data is securely stored on the device and synchronized automatically when connectivity is restored.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-sticky" style="top:204px;">
+        <div class="card" data-bg="./assets/service-bg-2.jpg">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Multi-Location Deployment</h3>
+          </div>
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Manage biometric operations across offices, campuses, factories, examination centres, and project sites through one centralized platform.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-sticky" style="top:234px;">
+        <div class="card" data-bg="./assets/service-bg-3.jpg">
+          <div class="card-badge-icon"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></div>
+          <div class="card-badge-tag">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>Secure</strong>
+              <small>INDUSTRY STANDARD</small>
+            </div>
+          </div>
+          <div class="card-title">
+            <h3>Enterprise Integrations</h3>
+          </div>
+          
+          <div class="card-info">
+            <div class="card-info-holder">
+            <p>Integrate seamlessly with HRMS, ERP, Payroll, Learning Management Systems (LMS), and other enterprise software to streamline organizational workflows.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="why-choose">
+  <div class="container">
+
+
+        <div class="header-row">
+      <div>
+        <div class="section-title">WHY CHOOSE OUR SOLUTION</div>
+        <h2 class="section-heading">Built for <span> Modern Biometric</span></h2>
+      </div>
+      
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="card card-1">
+        <span class="card-number">01</span>
+        <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Flexible Deployment</h3>
+        <p>Deploy biometric solutions across offices, campuses, examination centres, project sites, and remote environments without depending on fixed biometric infrastructure.</p>
+      </div>
+
+      <div class="card card-2">
+        <span class="card-number">02</span>
+        <div class="card-icon"><i class="fa-solid fa-fingerprint"></i></div>
+        <h3>Enterprise Expertise</h3>
+        <p>Our expertise in facial, fingerprint, and iris biometrics enables us to deliver solutions suited to different industries, security levels, and operational environments.</p>
+      </div>
+
+      <div class="card card-3">
+        <span class="card-number">03</span>
+        <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Future-Ready Partnership</h3>
+        <p>From planning and deployment to training and long-term support, we help organizations build biometric operations that can evolve with changing requirements.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="faq-section">
+  <div class="container">
+
+
+            <div class="header-row">
+      <div>
+        <div class="section-title">FAQ</div>
+        <h2 class="section-heading">Frequently Asked <span>Questions</span></h2>
+      </div>
+      
+    </div>
+
+    <div class="accordion">
+
+      <div class="accordion-item active">
+        <button class="accordion-trigger">
+          <span>What biometric modalities do you support?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We work across facial, fingerprint, and iris biometrics, and can recommend the right modality — or a combination — based on your environment, security requirements, and user volume.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Can this be deployed without fixed infrastructure?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Yes. Our solutions are built for flexible deployment across offices, campuses, examination centres, project sites, and remote locations, without depending on permanent biometric hardware.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Do you offer training and long-term support?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We support the full lifecycle — planning, deployment, team training, and ongoing support — so your biometric operations can evolve as your requirements change.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Is your solution suited to high-security environments?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Yes. We tailor security levels and verification workflows to the sensitivity of the environment, from standard access control to high-assurance identity verification.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>How long does a typical deployment take?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Timelines vary with scale and site complexity. Smaller single-site rollouts can go live in a few weeks, while multi-location deployments are phased to fit your operational calendar.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="bg">
+            <div class="bg-cover"></div>
+            <p class="cta-eyebrow" style="z-index: 9; position: relative">
+              Let&rsquo;s Build Together
+            </p>
+            <h2 class="reveal" style="z-index: 9; position: relative">
+             Still have <span>questions?</span>
+            </h2>
+            <p class="cta-copy" style="z-index: 9; position: relative">
+              Whether you&rsquo;re conducting high-scale examinations, deploying
+              biometric verification, or building a custom digital platform,
+              we&rsquo;re ready to engineer the solution with you.
+            </p>
+
+            <a class="cta-button" href="./contact.html">
+              <span class="cta-button-icon" aria-hidden="true"
+                ><i class="fa-solid fa-arrow-right"></i
+              ></span>
+              <span class="cta-button-label">Talk to Our Experts</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-name">Abhinnovation</p>
+            <p class="footer-brand-subtitle">Technologies Pvt. Ltd.</p>
+            <p class="footer-summary">
+              Building secure biometric, iris recognition, and enterprise
+              software solutions that empower governments, institutions, and
+              businesses to operate with confidence.
+            </p>
+            <ul class="footer-socials">
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/abhinnovation-technologies-pvt-ltd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  ><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a tabindex="0" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a tabindex="0" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a tabindex="0" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="./contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Services</h2>
+            <ul>
+              <li>
+                <a href="#biometric-services"
+                  >Mobile & tab based biometric service</a
+                >
+              </li>
+              <li>
+                <a href="#assessment-services"
+                  >Exam infrastructure management</a
+                >
+              </li>
+              <li><a href="#custom-software">Technical manpower</a></li>
+              <li>
+                <a href="#digital-transformation"
+                  >CBT / IBT / PBT / TBT proctoring test service</a
+                >
+              </li>
+              <li>
+                <a href="#digital-transformation"
+                  >Custom software development</a
+                >
+              </li>
+              <li><a href="#digital-transformation">Assessment services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Solutions</h2>
+            <ul>
+              <li><a href="#croire">Croire</a></li>
+              <li><a href="#abhiconnect">Insta Enroll</a></li>
+              <li><a href="#veda">Anmelde</a></li>
+              <li><a href="#anmelde">Kovantis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h2>Get in Touch</h2>
+            <ul class="footer-contact-list">
+              <li>
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i
+                ><a href="mailto:info@atpl.co.in">info@atpl.co.in</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone" aria-hidden="true"></i
+                ><a href="tel:+911204567890">+91 120 456 7890</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-globe" aria-hidden="true"></i
+                ><a
+                  href="https://www.atpl.co.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >www.atpl.co.in</a
+                >
+              </li>
+            </ul>
+            <h2 class="footer-office-title">Registered Office</h2>
+            <address>
+              Abhinnovation Technologies Pvt. Ltd.<br />
+              C-147, Sector-63, Noida,<br />
+              Uttar Pradesh - 201301, India
+            </address>
+          </div>
+        </div>
+
+        <p class="footer-copyright">
+          &copy; 2026 Abhinnovation Technologies Pvt. Ltd. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="close-modal" class="close-btn">&times;</button>
+
+        <!-- STEP 1: Quick Details Form -->
+        <div id="form-step">
+          <h2>Request a Product Demo</h2>
+          <p>
+            Tell us what you're interested in, then pick a time that works for
+            you.
+          </p>
+
+          <form id="demo-form">
+            <div class="form-group">
+              <label for="user-name">Full Name *</label>
+              <input
+                type="text"
+                id="user-name"
+                required
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="user-email">Work Email *</label>
+              <input
+                type="email"
+                id="user-email"
+                required
+                placeholder="john@company.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="product-select">Product of Interest *</label>
+              <select id="product-select" required>
+                <option value="" disabled selected>Select product...</option>
+                <option value="Croire">Croire</option>
+                <option value="Insta Enroll">Insta Enroll</option>
+                <option value="Anmelde">Anmelde</option>
+                <option value="Kovantis">Kovantis</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="company-name">Company Name (Optional)</label>
+              <input type="text" id="company-name" placeholder="Acme Corp" />
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Next: Pick a Time &rarr;
+            </button>
+          </form>
+        </div>
+
+        <!-- STEP 2: Calendly Inline Container (Hidden initially) -->
+        <div id="calendar-step" style="display: none">
+          <h2>Select Date & Time</h2>
+          <div
+            id="calendly-embed"
+            style="min-width: 320px; height: 630px"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load Calendly Widget Script -->
+<!-- Calendly -->
+<script
+  src="https://assets.calendly.com/assets/external/widget.js"
+  async
+></script>
+
+<!-- GSAP dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+
+<!-- Your scripts -->
+<script src="./header.js" defer></script>
+<script src="./about-image-expansion.js" defer></script>
+<script src="./cta-expansion.js" defer></script>
+<script src="./product-demo-calendly.js" defer></script>
+<script src="./reveal.js" defer></script>
+<script src="./card-stacking.js"></script>
+<script src="./why-choose-us-card-animation.js"></script>
+<script src="./accordion.js"></script>
+  </body>
+</html>

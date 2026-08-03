@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croire — Intelligent Biometric Attendance &amp; Identity Management Platform</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./header-footer.css">
+<script>document.documentElement.classList.add("js");</script>
+<style>
+
+      /* ---- Hero Biometric Section ---- */
+      .hero-bio {
+        position: relative;
+        background:
+          radial-gradient(
+            120% 90% at 82% 12%,
+            rgba(33, 92, 255, 0.35) 0%,
+            rgba(33, 92, 255, 0) 55%
+          ),
+          radial-gradient(
+            90% 70% at 8% 100%,
+            rgba(53, 224, 208, 0.14) 0%,
+            rgba(53, 224, 208, 0) 60%
+          ),
+          linear-gradient(180deg, #060a1a 0%, #0a1130 55%, #0f1a45 100%);
+        color: #f5f7ff;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      .hero-bio__scanlines {
+        position: absolute;
+        inset: 0;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        pointer-events: none;
+        mix-blend-mode: overlay;
+      }
+
+      .hero-bio__inner {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: center;
+        gap: clamp(2.5rem, 5vw, 4rem);
+        padding: 140px 0 120px;
+      }
+
+      /* ---------------- Content ---------------- */
+
+      .hero-bio__content {
+        max-width: 640px;
+      }
+
+      .hero-bio__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.5rem 1rem 0.5rem 0.75rem;
+        margin-bottom: 1.75rem;
+        border: 1px solid rgba(75, 125, 255, 0.4);
+        border-radius: 999px;
+        background: rgba(33, 92, 255, 0.12);
+        backdrop-filter: blur(6px);
+        color: #c7d6ff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 18px;
+      }
+
+      .hero-bio__badge .hero-bio__badge-dot {
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: #35e0d0;
+        box-shadow: 0 0 0 4px rgba(53, 224, 208, 0.18);
+      }
+
+      .hero-bio__heading {
+        margin: 0 0 1.5rem;
+        font-family: "Sora", sans-serif;
+        font-size: clamp(2.1rem, 4vw, 3.4rem);
+        font-weight: 700;
+        line-height: 1.14;
+        letter-spacing: -0.015em;
+      }
+
+      .hero-bio__heading span {
+        background: linear-gradient(97deg, #4b7dff 0%, #35e0d0 100%);
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+      }
+
+      .hero-bio__desc {
+        max-width: 560px;
+        margin: 0 0 2.5rem;
+        color: rgba(226, 232, 255, 0.68);
+        font-size: clamp(1rem, 1.1vw, 1.09rem);
+        line-height: 1.7;
+      }
+
+      .hero-bio__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.75rem;
+      }
+
+      .hero-bio__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.9rem 1.7rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .hero-bio__btn--primary {
+        border: 1px solid transparent;
+        background: linear-gradient(97deg, #215cff 0%, #4b7dff 100%);
+        color: #ffffff;
+        box-shadow: 0 10px 24px -8px rgba(33, 92, 255, 0.65);
+      }
+
+      .hero-bio__btn--primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px -8px rgba(33, 92, 255, 0.8);
+      }
+
+      .hero-bio__btn--ghost {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: transparent;
+        color: #f5f7ff;
+      }
+
+      .hero-bio__btn--ghost:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-2px);
+      }
+
+      .hero-bio__stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(1.5rem, 3vw, 2.75rem);
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .hero-bio__stat-value {
+        margin-bottom: 0.4rem;
+        color: #f5f7ff;
+        font-family: "Sora", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .hero-bio__stat-label {
+        color: rgba(226, 232, 255, 0.68);
+        font-size: 0.8rem;
+        letter-spacing: 0.01em;
+      }
+
+      /* ---------------- Visual / Scanner ---------------- */
+
+        /* device mockup scene */
+  .device-scene {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    aspect-ratio: 620 / 440;
+    margin-left: auto;
+  }
+
+  .hero-visual{
+    min-height: 0;
+  }
+
+  .laptop {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 88%;
+  }
+
+  .laptop-screen {
+    background: #10182f;
+    border-radius: 14px 14px 0 0;
+    border: 6px solid #1c2540;
+    padding: 14px;
+    display: grid;
+    /* grid-template-columns: 90px 1fr; */
+    gap: 10px;
+    height: 300px;
+    overflow: hidden;
+  }
+
+  .laptop-screen>img{
+    width: 100%;
+  }
+
+
+  .laptop-sidebar {
+    background: #0b1226;
+    border-radius: 8px;
+    padding: 10px 8px;
+    font-size: 8px;
+    color: #7d87a8;
+  }
+
+  .laptop-sidebar .side-logo {
+    color: #4f83ff;
+    font-weight: 800;
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .laptop-sidebar .side-item {
+    padding: 6px 6px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+  }
+
+  .laptop-sidebar .side-item.active {
+    background: #215cff;
+    color: #ffffff;
+  }
+
+  .laptop-main {
+    background: #f6f8fd;
+    border-radius: 8px;
+    padding: 12px;
+    overflow: hidden;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .stat-box {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 7px;
+    color: #6a7286;
+  }
+
+  .stat-box strong {
+    display: block;
+    font-size: 12px;
+    color: #0d1730;
+  }
+
+  .chart-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .chart-card, .gauge-card {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 7px;
+    color: #6a7286;
+  }
+
+  .chart-card svg { width: 100%; height: 36px; }
+
+  .gauge-card .gauge-value {
+    font-size: 16px;
+    font-weight: 800;
+    color: #215cff;
+  }
+
+  .activity-card {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 7px;
+    color: #6a7286;
+  }
+
+  .activity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 0;
+  }
+
+  .activity-row .avatar {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c9d5ff;
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  .laptop-base {
+    width: 100%;
+    height: 14px;
+    background: linear-gradient(180deg, #dfe3ee, #b7bccf);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .tablet {
+    position: absolute;
+    right: 4%;
+    top: 20%;
+    width: 32%;
+    background: #10182f;
+    border: 5px solid #1c2540;
+    border-radius: 12px;
+    padding: 8px;
+    z-index: 2;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  .tablet-header {
+    font-size: 7px;
+    color: #7d87a8;
+    margin-bottom: 6px;
+  }
+
+  .tablet .chart-card, .tablet .gauge-card {
+    margin-bottom: 6px;
+  }
+
+  .phone {
+    position: absolute;
+    right: -2%;
+    bottom: 0;
+    width: 20%;
+    background: #10182f;
+    border: 5px solid #1c2540;
+    border-radius: 20px;
+    padding: 6px;
+    z-index: 3;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  .phone img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+  }
+
+  .phone-status {
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 7px;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .phone-name {
+    color: #ffffff;
+    font-size: 8px;
+    font-weight: 700;
+    margin-top: 5px;
+  }
+
+  .phone-id {
+    color: #7d87a8;
+    font-size: 6.5px;
+  }
+
+
+
+
+
+
+
+
+
+
+      /* Bottom transition curve into next light section */
+
+      .hero-bio__divider {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        line-height: 0;
+      }
+
+      .hero-bio__divider svg {
+        display: block;
+        width: 100%;
+        height: clamp(40px, 6vw, 80px);
+      }
+
+
+
+      @media (max-width: 991px) {
+        .hero-bio__inner {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+
+
+
+        .hero-bio__content {
+          max-width: 100%;
+        }
+      }
+
+      @media only screen and (max-width: 767px) {
+        .hero-bio__content {
+          text-align: center;
+        }
+
+
+      }
+
+      @media (max-width: 560px) {
+        .hero-bio__actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .hero-bio__btn {
+          justify-content: center;
+        }
+
+          .laptop-screen>img{
+    height: 100%;
+  }
+
+  .hero-visual{
+    min-height: 400px;
+  }
+
+
+  .laptop {
+    position: relative;
+    width: 100%;
+}
+
+.tablet{
+      right: 15%;
+    top: 36%;
+}
+
+.phone{
+      right: 10%;
+    bottom: -50px;
+}
+
+      }
+
+      /* sevice-about-section */
+
+      @media only screen and (min-width:768px){
+              .about-showcase.service .about-visual{
+            max-height: 80%;
+    align-self: end;
+      }
+      }
+
+
+      
+      .about-showcase.service .about-intro{
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+
+      @media only screen and (max-width:767px){
+        .about-showcase.service .about-intro{
+        grid-template-columns: 1fr;
+      }
+      }
+
+  /* ========================================================= */
+  /* MEET CROIRE SECTION */
+  /* ========================================================= */
+
+  .meet-croire {
+    /* background: #f6f8fd; */
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .meet-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 40px;
+  }
+/* 
+  .meet-croire .section-title {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 18px;
+  } */
+
+  .meet-croire p.desc {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #5a6478;
+    margin-bottom: 26px;
+    max-width: 440px;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+    /* opacity: 0; */
+  }
+
+  .feature-list span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #0d1730;
+  }
+
+  .feature-list i {
+    color: #215cff;
+    font-size: 13px;
+  }
+
+  .orbit {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .orbit svg { position: absolute; inset: 0; }
+
+  .orbit-center {
+    position: absolute;
+    left: 115px;
+    top: 115px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 20px 40px -14px rgba(33, 92, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: 800;
+    color: #215cff;
+    z-index: 2;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    inset: 0;
+    animation: orbit-spin 26s linear infinite;
+  }
+
+  .orbit-node {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 14px 28px -10px rgba(13, 23, 48, 0.2);
+  }
+
+  .orbit-node-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    font-size: 8px;
+    font-weight: 700;
+    color: #0d1730;
+    text-align: center;
+    animation: orbit-counter-spin 26s linear infinite;
+  }
+
+  .orbit-node i { color: #215cff; font-size: 15px; }
+
+  .orbit-node.n-dashboard { left: 138px; top: 13px; }
+  .orbit-node.n-mobile     { left: 246px; top: 75px; }
+  .orbit-node.n-iris       { left: 246px; top: 200px; }
+  .orbit-node.n-finger     { left: 138px; top: 263px; }
+  .orbit-node.n-face       { left: 30px;  top: 200px; }
+  .orbit-node.n-cloud      { left: 30px;  top: 75px; }
+
+  @keyframes orbit-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes orbit-counter-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+
+  @media (max-width: 900px) {
+    /* .meet-croire { padding: 60px 0; } */
+    .meet-grid { grid-template-columns: 1fr; gap: 50px; }
+    .orbit { transform: scale(0.85);width: 250px; height:250px; }
+
+
+    .orbit-center{
+          left: 83px;
+    top: 84px;
+    width: 80px;
+    height: 80px;
+    }
+
+    .orbit-node.n-dashboard
+ {
+    left: 92px;
+    top: -12px;
+}
+
+.orbit-node.n-mobile {
+    left: 185px;
+    top: 40px;
+}
+
+.orbit-node.n-finger {
+    left: 96px;
+    top: 190px;
+}
+
+.orbit-node.n-face {
+    left: 9px;
+    top: 146px;
+}
+
+.orbit-node.n-cloud {
+    left: 3px;
+    top: 41px;
+}
+
+
+.orbit-node.n-iris {
+    left: 183px;
+    top: 143px;
+}
+
+  }
+
+  @media (max-width: 480px) {
+    .feature-list { grid-template-columns: 1fr; }
+  }
+
+  /* ========================================================= */
+  /* KEY CAPABILITIES SECTION (stacking cards) */
+  /* ========================================================= */
+
+  .capabilities {
+    background: #050a1c;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+
+  .capabilities .header-row{
+    margin-bottom: 0px;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 50px;
+  }
+
+  .cap-intro { align-self: start; position: sticky; top: 100px; }
+
+  .capabilities .eyebrow { color: #4f83ff; }
+
+  .cap-intro h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .cap-intro p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #8b93ac;
+    margin-bottom: 26px;
+  }
+
+  /* .scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: #6a7492;
+  } */
+
+  .cap-cards { display: flex; flex-direction: column; gap: 18px; }
+
+  .cap-card {
+    position: sticky;
+    background: #131c38;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    padding: 22px 24px;
+    display: grid;
+    grid-template-columns: 40px 1fr 90px 34px;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden;
+  }
+
+  .cap-card:nth-child(1) { top: 100px; z-index: 1; }
+  .cap-card:nth-child(2) { top: 130px; z-index: 2; }
+  .cap-card:nth-child(3) { top: 160px; z-index: 3; }
+  .cap-card:nth-child(4) { top: 190px; z-index: 4; }
+  .cap-card:nth-child(5) { top: 220px; z-index: 5; }
+  .cap-card:nth-child(6) { top: 350px; z-index: 6; }
+
+  .cap-num {
+    font-size: 13px;
+    font-weight: 800;
+    color: #4f83ff;
+  }
+
+  .cap-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+  }
+
+  .cap-body p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #8b93ac;
+  }
+
+  .cap-thumb {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #1c2540;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cap-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cap-thumb i {
+    font-size: 22px;
+    color: #4f83ff;
+  }
+
+  .cap-share {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b93ac;
+    font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    /* .capabilities { padding: 60px 0; } */
+    .cap-grid { grid-template-columns: 1fr; }
+    .cap-intro { position: static; margin-bottom: 10px; }
+    .cap-card { position: static; grid-template-columns: 34px 1fr 60px 30px; padding: 18px; }
+    .cap-share{display:none;}
+  }
+
+  @media (max-width: 500px) {
+    .cap-card { grid-template-columns: 1fr; }
+    /* .cap-thumb { display: none; } */
+    .cap-share{display:flex;}
+  }
+
+  /* ========================================================= */
+  /* APP FUNCTIONS SECTION */
+  /* ========================================================= */
+
+  .app-functions {
+    background: #f6f8fd;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+    .app-functions .header-row{
+    margin-bottom: 0px;
+  }
+
+  .app-grid {
+    display: grid;
+    grid-template-columns: 0.7fr 2fr;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .app-functions .section-title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+
+  .app-functions p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5a6478;
+    margin-bottom: 22px;
+  }
+
+  /* .btn-mobile {
+    background: #215cff;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  } */
+
+  .phone-row {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .phone-step { flex-shrink: 0; text-align: center; width: 80px; }
+
+  .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #215cff;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+  }
+
+  .phone-frame {
+    width: 80px;
+    height: 158px;
+    background: #0d1730;
+    border-radius: 16px;
+    padding: 5px;
+    margin-bottom: 8px;
+  }
+
+  .phone-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .phone-step span {
+    font-size: 11px;
+    color: #5a6478;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    /* .app-functions { padding: 60px 0; } */
+    .app-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================================================= */
+  /* TRUSTED INDUSTRIES SECTION */
+  /* ========================================================= */
+
+  .industries {
+    background: #ffffff;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  /* .industries .section-title {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 36px;
+  } */
+
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+
+  .industry-card {
+    background: #f6f8fd;
+    border-radius: 16px;
+    padding: 22px 14px;
+    text-align: center;
+  }
+
+  .industry-card .icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e9effe;
+    color: #215cff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    margin: 0 auto 14px;
+  }
+
+  .industry-card h3 {
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .industry-card p {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #5a6478;
+  }
+
+  @media (max-width: 900px) {
+    /* .industries { padding: 60px 0; } */
+    .industry-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .industry-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================================================= */
+  /* FAQ + CTA SECTION */
+  /* ========================================================= */
+
+  /* .faq-cta {
+    background: #050a1c;
+    padding: 90px 0;
+  }
+
+  .faq-cta-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+  }
+
+  .faq-cta .eyebrow { color: #4f83ff; }
+
+  .faq-cta h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .faq-trigger i {
+    flex-shrink: 0;
+    font-size: 12px;
+    color: #8b93ac;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.active .faq-trigger i {
+    transform: rotate(45deg);
+    color: #4f83ff;
+  }
+
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  .faq-item.active .faq-content {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-content-inner { overflow: hidden; min-height: 0; }
+
+  .faq-content-inner p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #8b93ac;
+    padding-bottom: 16px;
+  }
+
+  .cta-side h2 { font-size: 30px; margin-bottom: 14px; }
+
+  .cta-side p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: #8b93ac;
+    margin-bottom: 26px;
+  }
+
+  .shield-scene {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 20px auto 0;
+  }
+
+  .shield-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(33, 92, 255, 0.35), transparent 65%);
+  }
+
+  .shield-icon {
+    position: absolute;
+    left: 90px;
+    top: 70px;
+    width: 80px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #4f83ff;
+  }
+
+  .shield-orbit-node {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 13px;
+  }
+
+  .shield-orbit-node.o1 { left: 10px; top: 40px; }
+  .shield-orbit-node.o2 { left: 210px; top: 40px; }
+  .shield-orbit-node.o3 { left: 10px; top: 170px; }
+  .shield-orbit-node.o4 { left: 210px; top: 170px; }
+
+  .shield-ring {
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    width: 160px;
+    height: 30px;
+    border: 1px solid rgba(79, 131, 255, 0.4);
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 900px) {
+    .faq-cta { padding: 60px 0; }
+    .faq-cta-grid { grid-template-columns: 1fr; gap: 50px; }
+  } */
+
+
+
+
+
+   
+    /* ========================================================= */
+  /* FAQ SECTION */
+  /* ========================================================= */
+
+  .faq-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: #1a1330;
+  }
+
+
+
+       .faq-section .header-row .section-heading{
+      color: #ffffff;
+    }
+
+  .faq-section .eyebrow {
+    color: #a78bfa;
+  }
+
+
+
+  .faq-section .accordion-item {
+    background: #241a42;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-section .accordion-item.active {
+    border-color: rgba(167, 139, 250, 0.4);
+    box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.55);
+  }
+
+  .faq-section .accordion-trigger {
+    color: #ffffff;
+  }
+
+  .faq-section .accordion-trigger .icon-wrap {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .faq-section .accordion-trigger .icon-wrap i {
+    color: #a78bfa;
+  }
+
+  .faq-section .accordion-item.active .accordion-trigger .icon-wrap {
+    background: #8b5cf6;
+  }
+
+  .faq-section .accordion-content-inner p {
+    color: #b3a8ce;
+  }
+
+ 
+
+  .accordion {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .accordion-item {
+    background: #ffffff;
+    border: 1px solid rgba(33, 92, 255, 0.14);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .accordion-item.active {
+    border-color: rgba(33, 92, 255, 0.35);
+    box-shadow: 0 20px 40px -24px rgba(33, 92, 255, 0.35);
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d1730;
+  }
+
+  .accordion-trigger .icon-wrap {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(33, 92, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.35s ease, background 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-trigger .icon-wrap {
+    background: #215cff;
+    transform: rotate(135deg);
+  }
+
+  .accordion-trigger .icon-wrap i {
+    font-size: 13px;
+    color: #215cff;
+    transition: color 0.3s ease;
+  }
+
+  .accordion-item.active .accordion-trigger .icon-wrap i {
+    color: #ffffff;
+  }
+
+  /* smooth open/close via grid-template-rows, no JS height calc needed */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  .accordion-item.active .accordion-content {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion-content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .accordion-content-inner p {
+    padding: 0 26px 22px;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #545e73;
+  }
+
+  @media (max-width: 900px) {
+    /* .faq-section { padding: 70px 0 90px; } */
+    .faq-section .section-title { font-size: 30px; }
+  }
+
+</style>
+</head>
+<body class="dark">
+
+    <header class="site-header" id="site-header">
+      <div class="nav-shell">
+        <a
+          class="brand"
+          href="./index.html"
+          aria-label="Abhinnovation Technologies home"
+        >
+          <img
+            src="./assets/atpl-icon-bg-rm.svg"
+            alt=""
+            width="45"
+            height="44"
+          />
+          <span class="brand-name">
+            <strong>Abhinnovation</strong>
+            <span>Technologies Pvt. Ltd.</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          <ul class="primary-nav" id="primary-navigation">
+            <li>
+              <a class="nav-link" href="./index.html" aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle active"
+                type="button"
+                aria-expanded="false"
+                aria-controls="services-menu"
+              >
+                Services <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="services-menu">
+                <li>
+                  <a href="./hero-biometric.html" class="active"
+                    >Mobile & tab based biometric service</a
+                  >
+                </li>
+                <li>
+                  <a href="#assessment-services"
+                    >Exam infrastructure management</a
+                  >
+                </li>
+                <li><a href="#custom-software">Technical manpower</a></li>
+                <li>
+                  <a href="#custom-software"
+                    >CBT / IBT / PBT / TBT proctoring test service</a
+                  >
+                </li>
+                <li>
+                  <a href="#custom-software">Custom software development</a>
+                </li>
+                <li><a href="#custom-software">Assessment services</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <button
+                class="nav-link dropdown-toggle active"
+                type="button"
+                aria-expanded="false"
+                aria-controls="solutions-menu"
+              >
+                Solutions <span aria-hidden="true">âŒ„</span>
+              </button>
+              <ul class="dropdown-menu" id="solutions-menu">
+                <li><a href="./croire-product-page.html">Croire</a></li>
+                <li><a href="#abhiconnect">Insta Enroll</a></li>
+                <li><a href="#veda">Anmelde</a></li>
+                <li><a href="#anmelde">Kovantis</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link" href="./careers.html">Careers</a></li>
+            <li><a class="nav-link" href="./contact.html">Contact</a></li>
+            <li class="mobile-nav-cta">
+              <button class="button button-sm nav-cta demo-btn">
+                Ask for Demo ↗
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="button button-sm nav-cta demo-btn">
+          Ask for Demo
+          <span aria-hidden="true"
+            ><i
+              class="fa-solid fa-arrow-up-right-from-square"
+              style="color: rgb(255, 255, 255)"
+            ></i
+          ></span>
+        </button>
+      </div>
+    </header>
+
+ <!-- <section class="hero" id="overview">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">PRODUCT</span>
+        <h1 class="hero-title">Croire</h1>
+        <p class="hero-subtitle">Intelligent Biometric Attendance &amp; Identity Management Platform</p>
+        <p>One unified platform for attendance, identity verification and workforce management. Secure. Smart. Scalable.</p>
+        <div class="hero-actions">
+          <a href="#demo" class="btn-solid">Request Demo <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#capabilities" class="btn-outline">Explore Platform</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="device-scene">
+
+          <div class="tablet">
+            <div class="tablet-header">Dashboard</div>
+            <div class="chart-card">
+              <svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,25 15,18 30,20 45,10 60,14 75,6 100,8" fill="none" stroke="#215cff" stroke-width="2"/></svg>
+            </div>
+            <div class="gauge-card"><span class="gauge-value">72%</span> Live</div>
+          </div>
+
+          <div class="phone">
+            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=200&q=80" alt="Face verified employee">
+            <div class="phone-status"><i class="fa-solid fa-circle-check"></i> Face Verified</div>
+            <div class="phone-name">Aman Kumar</div>
+            <div class="phone-id">ID: EMP001 · Marked as Present</div>
+          </div>
+
+          <div class="laptop">
+            <div class="laptop-screen">
+              <div class="laptop-sidebar">
+                <div class="side-logo">Croire</div>
+                <div class="side-item active">Dashboard</div>
+                <div class="side-item">Attendance</div>
+                <div class="side-item">Users</div>
+                <div class="side-item">Devices</div>
+                <div class="side-item">Reports</div>
+                <div class="side-item">Analytics</div>
+                <div class="side-item">Settings</div>
+              </div>
+              <div class="laptop-main">
+                <div class="stat-row">
+                  <div class="stat-box"><strong>2,495</strong>Total Employees</div>
+                  <div class="stat-box"><strong>1,851</strong>Present Today</div>
+                  <div class="stat-box"><strong>255</strong>Absent</div>
+                  <div class="stat-box"><strong>300</strong>On Leave</div>
+                </div>
+                <div class="chart-row">
+                  <div class="chart-card">
+                    Attendance Overview
+                    <svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,25 15,18 30,20 45,10 60,14 75,6 100,8" fill="none" stroke="#215cff" stroke-width="2"/></svg>
+                  </div>
+                  <div class="gauge-card">Live Attendance<br><span class="gauge-value">72%</span></div>
+                </div>
+                <div class="activity-card">
+                  Recent Activities
+                  <div class="activity-row"><span><span class="avatar"></span>Rohit Sharma</span><span>Check-in</span></div>
+                  <div class="activity-row"><span><span class="avatar"></span>Priya Verma</span><span>Check-in</span></div>
+                  <div class="activity-row"><span><span class="avatar"></span>Amit Verma</span><span>Check-in</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  -->
+
+
+<section class="hero-bio">
+        <div class="hero-bio__scanlines" aria-hidden="true"></div>
+
+        <div class="container">
+          <div class="hero-bio__inner">
+            <!-- Content -->
+            <div class="hero-bio__content">
+              <span class="hero-bio__badge">
+                <span class="hero-bio__badge-dot" aria-hidden="true"></span>
+                <span>Enterprise Product</span>
+              </span>
+
+              <h1 class="hero-bio__heading">
+                Croire
+              </h1>
+
+              <p class="hero-bio__desc">
+Intelligent Biometric Attendance &amp; Identity Management Platform <br> One unified platform for attendance, identity verification and workforce management. Secure. Smart. Scalable.
+              </p>
+              <p class="hero-bio__desc">
+
+              </p>
+
+              <div class="hero-actions">
+                <a class="button button-ghost dark" href="#solutions"
+                  >Explore Platform
+                  <span aria-hidden="true"
+                    ><i
+                      class="fa-solid fa-arrow-up-right-from-square"
+                    ></i></span
+                ></a>
+              </div>
+
+              <!-- <div class="hero-bio__stats">
+                <div>
+                  <div class="hero-bio__stat-value">4-in-1</div>
+                  <div class="hero-bio__stat-label">
+                    Face, fingerprint, iris &amp; cloud
+                  </div>
+                </div>
+                <div>
+                  <div class="hero-bio__stat-value">Real-time</div>
+                  <div class="hero-bio__stat-label">
+                    Attendance &amp; verification
+                  </div>
+                </div>
+                <div>
+                  <div class="hero-bio__stat-value">Any Device</div>
+                  <div class="hero-bio__stat-label">
+                    Mobile &amp; tablet ready
+                  </div>
+                </div>
+              </div> -->
+            </div>
+
+      <div class="hero-visual">
+        <div class="device-scene">
+
+          <div class="tablet">
+            <div class="tablet-header">Dashboard</div>
+            <div class="chart-card">
+              <svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,25 15,18 30,20 45,10 60,14 75,6 100,8" fill="none" stroke="#215cff" stroke-width="2"/></svg>
+            </div>
+            <div class="gauge-card"><span class="gauge-value">72%</span> Live</div>
+          </div>
+
+          <div class="phone">
+            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=200&q=80" alt="Face verified employee">
+            <div class="phone-status"><i class="fa-solid fa-circle-check"></i> Face Verified</div>
+            <div class="phone-name">Aman Kumar</div>
+            <div class="phone-id">ID: EMP001 · Marked as Present</div>
+          </div>
+
+          <div class="laptop">
+            <div class="laptop-screen">
+              <img src="./assets/dashboard.webp" alt="">
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+
+        </div>
+      </div>
+          </div>
+        </div>
+
+        <div class="hero-bio__divider" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 80"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0,32 C240,80 480,80 720,48 C960,16 1200,16 1440,48 L1440,80 L0,80 Z"
+              fill="#ffffff"
+            ></path>
+          </svg>
+        </div>
+</section>
+
+
+<section class="meet-croire">
+  <div class="container">
+    <div class="meet-grid">
+      <div class="meet-text">
+
+        
+              <div class="header-row">
+      <div>
+        <div class="section-title">MEET CROIRE</div>
+        <h2 class="section-heading">One Platform.<br>Complete Control.</span></h2>
+      </div>
+      
+    </div>
+        <p class="desc">Croire brings together advanced biometric technologies, cloud infrastructure and intelligent software to deliver a secure, scalable and real-time identity management experience for modern organizations.</p>
+        <div class="feature-list">
+          <span><i class="fa-solid fa-check"></i>AI-Powered Biometrics</span>
+          <span><i class="fa-solid fa-check"></i>Multi-device Support</span>
+          <span><i class="fa-solid fa-check"></i>Cloud Infrastructure</span>
+          <span><i class="fa-solid fa-check"></i>Offline Capability</span>
+          <span><i class="fa-solid fa-check"></i>Real-time Analytics</span>
+          <span><i class="fa-solid fa-check"></i>Enterprise Security</span>
+        </div>
+      </div>
+
+
+      <div class="orbit">
+        <div class="orbit-ring">
+          <svg viewBox="0 0 340 340">
+            <line x1="170" y1="170" x2="170" y2="45" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+            <line x1="170" y1="170" x2="278" y2="107" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+            <line x1="170" y1="170" x2="278" y2="233" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+            <line x1="170" y1="170" x2="170" y2="295" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+            <line x1="170" y1="170" x2="62" y2="233" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+            <line x1="170" y1="170" x2="62" y2="107" stroke="#215cff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.5"/>
+          </svg>
+          <div class="orbit-node n-dashboard"><div class="orbit-node-inner"><i class="fa-solid fa-chart-simple"></i>Dashboard</div></div>
+          <div class="orbit-node n-mobile"><div class="orbit-node-inner"><i class="fa-solid fa-mobile-screen"></i>Mobile App</div></div>
+          <div class="orbit-node n-iris"><div class="orbit-node-inner"><i class="fa-solid fa-eye"></i>Iris Recognition</div></div>
+          <div class="orbit-node n-finger"><div class="orbit-node-inner"><i class="fa-solid fa-fingerprint"></i>Fingerprint</div></div>
+          <div class="orbit-node n-face"><div class="orbit-node-inner"><i class="fa-solid fa-camera"></i>Face Recognition</div></div>
+          <div class="orbit-node n-cloud"><div class="orbit-node-inner"><i class="fa-solid fa-cloud"></i>Cloud</div></div>
+        </div>
+        <div class="orbit-center">C</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="capabilities" id="capabilities">
+  <div class="container">
+    <div class="cap-grid">
+      <div class="cap-intro">
+                      <div class="header-row">
+      <div>
+        <div class="section-title">KEY CAPABILITIES</div>
+        <h2 class="section-heading">Powerful Capabilities Built for You</span></h2>
+      </div>
+      
+    </div>
+        <p>Explore every key capability of Croire. Scroll to discover how each feature empowers your organization.</p>
+        <!-- <div class="scroll-hint"><i class="fa-solid fa-computer-mouse"></i>Scroll to explore</div> -->
+      </div>
+
+      <div class="cap-cards">
+
+        <div class="cap-card">
+          <span class="cap-num">01</span>
+          <div class="cap-body">
+            <h3>Face Recognition</h3>
+            <p>AI-powered facial recognition for fast, accurate and contactless authentication.</p>
+          </div>
+          <div class="cap-thumb"><img src="https://images.unsplash.com/photo-1521146764736-56c929d59c83?w=200&q=80" alt="Face recognition"></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+        <div class="cap-card">
+          <span class="cap-num">02</span>
+          <div class="cap-body">
+            <h3>Fingerprint Authentication</h3>
+            <p>Reliable fingerprint scanning for secure identity and attendance verification.</p>
+          </div>
+          <div class="cap-thumb"><img src="https://images.unsplash.com/photo-1601582589907-f92af5ed9db8?w=200&q=80" alt="Fingerprint authentication"></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+        <div class="cap-card">
+          <span class="cap-num">03</span>
+          <div class="cap-body">
+            <h3>Iris Recognition</h3>
+            <p>High-precision iris recognition for enhanced security and identity verification.</p>
+          </div>
+          <div class="cap-thumb"><img src="https://images.unsplash.com/photo-1509281373149-e957c6296406?w=200&q=80" alt="Iris recognition"></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+        <div class="cap-card">
+          <span class="cap-num">04</span>
+          <div class="cap-body">
+            <h3>Offline Operation</h3>
+            <p>Continue operations without internet. Data syncs automatically when reconnected.</p>
+          </div>
+          <div class="cap-thumb"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+        <div class="cap-card">
+          <span class="cap-num">05</span>
+          <div class="cap-body">
+            <h3>Cloud Platform</h3>
+            <p>Centralized cloud platform for data storage, access, management and real-time sync.</p>
+          </div>
+          <div class="cap-thumb"><i class="fa-solid fa-cloud"></i></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+        <div class="cap-card">
+          <span class="cap-num">06</span>
+          <div class="cap-body">
+            <h3>Enterprise Integration</h3>
+            <p>Seamless integration with HRMS, ERP, payroll and other enterprise systems.</p>
+          </div>
+          <div class="cap-thumb"><i class="fa-solid fa-puzzle-piece"></i></div>
+          <span class="cap-share"><i class="fa-brands fa-uncharted" style="color: rgb(255, 255, 255);"></i></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="app-functions" id="app-functions">
+  <div class="container">
+    <div class="app-grid">
+      <div class="app-text">
+                      <div class="header-row">
+      <div>
+        <div class="section-title">APP FUNCTIONS</div>
+        <h2 class="section-heading">Complete Workflows in Your Hand</span></h2>
+      </div>
+      
+    </div>
+        <p>Croire mobile application transforms any Android device into a powerful biometric workstation.</p>
+        <!-- <a href="#demo" class="btn-mobile">View Mobile App</a> -->
+      </div>
+
+      <div class="phone-row">
+
+        <div class="phone-step">
+          <div class="step-num">1</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=200&q=80" alt="Operator login screen"></div>
+          <span>Operator Login</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">2</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&q=80" alt="Dashboard screen"></div>
+          <span>Dashboard</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">3</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80" alt="User enrollment screen"></div>
+          <span>User Enrollment</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">4</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=200&q=80" alt="Face capture screen"></div>
+          <span>Face Capture</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">5</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1614064548237-096e4fb0d68d?w=200&q=80" alt="Fingerprint scan screen"></div>
+          <span>Fingerprint Scan</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">6</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=200&q=80" alt="Verification success screen"></div>
+          <span>Verification</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">7</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=200&q=80" alt="Attendance marked screen"></div>
+          <span>Attendance Marked</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">8</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=200&q=80" alt="Reports screen"></div>
+          <span>Reports</span>
+        </div>
+
+        <div class="phone-step">
+          <div class="step-num">9</div>
+          <div class="phone-frame"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80" alt="Profile screen"></div>
+          <span>Profile</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="industries" id="industries">
+  <div class="container">
+                      <div class="header-row">
+      <div>
+        <div class="section-title">BUILT FOR EVERY ENVIRONMENT</div>
+        <h2 class="section-heading">Trusted Across Industries</span></h2>
+      </div>
+      
+    </div>
+    <div class="industry-grid">
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-building-columns"></i></div>
+        <h3>Government</h3>
+        <p>Secure identity and attendance for public sector operations.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Education</h3>
+        <p>Student attendance and examination management.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-hospital"></i></div>
+        <h3>Healthcare</h3>
+        <p>Staff attendance and secure access management.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-city"></i></div>
+        <h3>Enterprise</h3>
+        <p>Workforce management for corporate organizations.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-industry"></i></div>
+        <h3>Manufacturing</h3>
+        <p>Track and manage workforce across production units.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="icon-circle"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h3>Field Operations</h3>
+        <p>Enable mobile workforce attendance and tracking in the field.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- <section class="faq-cta" id="faq">
+  <div class="container">
+    <div class="faq-cta-grid">
+
+      <div class="faq-side">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item active">
+          <button class="faq-trigger">Which biometric technologies are supported? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>Croire supports face recognition, fingerprint, and iris biometrics, individually or combined, depending on your security needs.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">Does Croire work without internet? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>Yes. Croire supports offline operation and automatically syncs attendance data once connectivity is restored.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">Can Croire integrate with existing HRMS or ERP systems? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>Croire integrates seamlessly with popular HRMS, ERP and payroll systems through secure APIs.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">Can multiple locations be managed? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>Yes. The centralized cloud platform lets you manage attendance and identity across unlimited locations from one dashboard.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">Is my data secure with Croire? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>Croire follows enterprise-grade security practices including encryption at rest and in transit, and role-based access control.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">What kind of support do you provide? <i class="fa-solid fa-plus"></i></button>
+          <div class="faq-content"><div class="faq-content-inner"><p>We offer onboarding assistance, technical support and dedicated account management for enterprise deployments.</p></div></div>
+        </div>
+      </div>
+
+      <div class="cta-side">
+        <h2>Ready to Transform Your Workforce?</h2>
+        <p>Experience the power of intelligent biometrics. Request a demo and see how Croire can simplify your operations.</p>
+        <a href="#demo" class="btn-solid">Request Demo <i class="fa-solid fa-arrow-right"></i></a>
+
+        <div class="shield-scene">
+          <span class="shield-glow"></span>
+          <span class="shield-ring"></span>
+          <div class="shield-orbit-node o1"><i class="fa-solid fa-lock"></i></div>
+          <div class="shield-orbit-node o2"><i class="fa-solid fa-cloud"></i></div>
+          <div class="shield-orbit-node o3"><i class="fa-solid fa-people-group"></i></div>
+          <div class="shield-orbit-node o4"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="shield-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section> -->
+
+
+<section class="faq-section">
+  <div class="container">
+
+
+            <div class="header-row">
+      <div>
+        <div class="section-title">FAQ</div>
+        <h2 class="section-heading">Frequently Asked <span>Questions</span></h2>
+      </div>
+      
+    </div>
+
+    <div class="accordion">
+
+      <div class="accordion-item active">
+        <button class="accordion-trigger">
+          <span>What biometric modalities do you support?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We work across facial, fingerprint, and iris biometrics, and can recommend the right modality — or a combination — based on your environment, security requirements, and user volume.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Can this be deployed without fixed infrastructure?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Yes. Our solutions are built for flexible deployment across offices, campuses, examination centres, project sites, and remote locations, without depending on permanent biometric hardware.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Do you offer training and long-term support?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>We support the full lifecycle — planning, deployment, team training, and ongoing support — so your biometric operations can evolve as your requirements change.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>Is your solution suited to high-security environments?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Yes. We tailor security levels and verification workflows to the sensitivity of the environment, from standard access control to high-assurance identity verification.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>How long does a typical deployment take?</span>
+          <span class="icon-wrap"><i class="fa-solid fa-plus"></i></span>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-content-inner">
+            <p>Timelines vary with scale and site complexity. Smaller single-site rollouts can go live in a few weeks, while multi-location deployments are phased to fit your operational calendar.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="bg">
+            <div class="bg-cover"></div>
+            <p class="cta-eyebrow" style="z-index: 9; position: relative">
+              Let&rsquo;s Build Together
+            </p>
+            <h2 class="reveal" style="z-index: 9; position: relative">
+             Ready to Experience<br> Croire?</span>
+            </h2>
+            <p class="cta-copy" style="z-index: 9; position: relative">
+              Powerful biometric technology. Intelligent workforce management. One unified platform designed to help organizations operate securely, efficiently, and at scale.
+            </p>
+
+            <a class="cta-button" href="./contact.html">
+              <span class="cta-button-icon" aria-hidden="true"
+                ><i class="fa-solid fa-arrow-right"></i
+              ></span>
+              <span class="cta-button-label">Talk to Our Experts</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    <footer class="site-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <p class="footer-brand-name">Abhinnovation</p>
+            <p class="footer-brand-subtitle">Technologies Pvt. Ltd.</p>
+            <p class="footer-summary">
+              Building secure biometric, iris recognition, and enterprise software solutions that
+              empower governments, institutions, and businesses to operate with confidence.
+            </p>
+            <ul class="footer-socials">
+              <li><a href="https://www.linkedin.com/company/abhinnovation-technologies-pvt-ltd" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a tabindex="0" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Company</h2>
+            <ul>
+              <li><a href="./index.html#about">About Us</a></li>
+              <li><a href="#careers">Careers</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Services</h2>
+            <ul>
+              <li><a href="#biometric-services">Mobile & tab based biometric service</a></li>
+              <li><a href="#assessment-services">Exam infrastructure management</a></li>
+              <li><a href="#custom-software">Technical manpower</a></li>
+              <li><a href="#digital-transformation">CBT / IBT / PBT / TBT proctoring test service</a></li>
+              <li><a href="#digital-transformation">Custom software development</a></li>
+              <li><a href="#digital-transformation">Assessment services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h2>Solutions</h2>
+            <ul>
+              <li><a href="#croire">Croire</a></li>
+              <li><a href="#abhiconnect">Insta Enroll</a></li>
+              <li><a href="#veda">Anmelde</a></li>
+              <li><a href="#anmelde">Kovantis</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h2>Get in Touch</h2>
+            <ul class="footer-contact-list">
+              <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="mailto:info@abhinnovation.com">info@abhinnovation.com</a></li>
+              <li><i class="fa-solid fa-phone" aria-hidden="true"></i><a href="tel:011-45681617">011-45681617</a></li>
+              <li><i class="fa-solid fa-globe" aria-hidden="true"></i><a href="https://abhinnovation.com/" target="_blank" rel="noopener noreferrer">www.abhinnovation.com</a></li>
+            </ul>
+            <h2 class="footer-office-title">Registered Office</h2>
+            <address>
+              Abhinnovation Technologies<br>
+Plot No RZ B-4, GF, Raghu Nagar Near Janakpuri South/Dabri Metro, Pankha Road, New Delhi - 110045
+
+
+            </address>
+          </div>
+        </div>
+
+        <p class="footer-copyright">&copy; 2026 Abhinnovation Technologies Pvt. Ltd. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+          <!-- Demo Modal -->
+<div id="demo-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button id="close-modal" class="close-btn">&times;</button>
+    
+    <!-- STEP 1: Quick Details Form -->
+    <div id="form-step">
+      <h2>Request a Product Demo</h2>
+      <p>Tell us what you're interested in, then pick a time that works for you.</p>
+      
+      <form id="demo-form">
+        <div class="form-group">
+          <label for="user-name">Full Name *</label>
+          <input type="text" id="user-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="user-email">Work Email *</label>
+          <input type="email" id="user-email" required placeholder="john@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="product-select">Product of Interest *</label>
+          <select id="product-select" required>
+            <option value="" disabled selected>Select product...</option>
+            <option value="Croire">Croire</option>
+            <option value="Insta Enroll">Insta Enroll</option>
+            <option value="Anmelde">Anmelde</option>
+            <option value="Kovantis">Kovantis</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="company-name">Company Name (Optional)</label>
+          <input type="text" id="company-name" placeholder="Acme Corp">
+        </div>
+
+        <button type="submit" class="submit-btn">Next: Pick a Time &rarr;</button>
+      </form>
+    </div>
+
+    <!-- STEP 2: Calendly Inline Container (Hidden initially) -->
+    <div id="calendar-step" style="display: none;">
+      <h2>Select Date & Time</h2>
+      <div id="calendly-embed" style="min-width:320px;height:630px;"></div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Load Calendly Widget Script -->
+<!-- Calendly -->
+<script
+  src="https://assets.calendly.com/assets/external/widget.js"
+  async
+></script>
+
+<!-- GSAP dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+
+<!-- Your scripts -->
+<script src="./header.js" defer></script>
+<!-- <script src="./about-image-expansion.js" defer></script> -->
+<script src="./cta-expansion.js" defer></script>
+<script src="./product-demo-calendly.js" defer></script>
+<script src="./reveal.js" defer></script>
+<!-- <script src="./card-stacking.js"></script> -->
+<!-- <script src="./why-choose-us-card-animation.js"></script> -->
+<script src="./accordion.js"></script>
+<script>
+  // document.querySelectorAll('.faq-trigger').forEach(function (trigger) {
+  //   trigger.addEventListener('click', function () {
+  //     const item = trigger.closest('.faq-item');
+  //     const wasActive = item.classList.contains('active');
+  //     document.querySelectorAll('.faq-item').forEach(function (el) { el.classList.remove('active'); });
+  //     if (!wasActive) item.classList.add('active');
+  //   });
+  // });
+
+
+
+
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // gsap.registerPlugin(ScrollTrigger);
+
+    // gsap.from(".feature-list span", {
+    //   opacity: 0,
+    //   y: 15,
+    //   stagger: 0.15,
+    //   duration: 0.5,
+    //   scrollTrigger: {
+    //     trigger: ".feature-list",
+    //     start: "bottom bottom",
+    //     once: true
+    //   }
+    // });
+
+
+    gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.create({
+  trigger: ".feature-list",
+  start: "top 80%",
+  once: true,
+  onEnter: () => {
+    const items = gsap.utils.toArray(".feature-list span");
+
+    gsap.timeline()
+      .from([items[0], items[2], items[4]], {
+        opacity: 0,
+        y: 15,
+        stagger: 0.3,
+        duration: 0.6
+      })
+      .from([items[1], items[3], items[5]], {
+        opacity: 0,
+        y: 15,
+        stagger: 0.3,
+        duration: 0.6
+      });
+  }
+});
+
+
+  });
+</script>
+
+</body>
+</html>
