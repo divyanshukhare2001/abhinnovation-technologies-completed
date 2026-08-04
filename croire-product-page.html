@@ -842,7 +842,7 @@
 
   .app-grid {
     display: grid;
-    grid-template-columns: 0.7fr 2fr;
+    grid-template-columns: 350px 1fr;
     gap: 30px;
     align-items: center;
   }
@@ -877,7 +877,7 @@
     gap: 14px;
     overflow-x: auto;
     padding-bottom: 10px;
-  
+    justify-content: space-around;
   }
 
   .phone-step { flex-shrink: 0; text-align: center; width: 80px; }
@@ -924,7 +924,7 @@
           .phone-row{
                      overflow:hidden;
      }
-
+    }
   @media (max-width: 900px) {
     /* .app-functions { padding: 60px 0; } */
     .app-grid { grid-template-columns: 1fr; }
@@ -934,63 +934,227 @@
   /* TRUSTED INDUSTRIES SECTION */
   /* ========================================================= */
 
-  .industries {
-    background: #ffffff;
+  section.industries{
     padding-top: 90px;
     padding-bottom: 90px;
   }
-
-  /* .industries .section-title {
-    font-size: 30px;
-    font-weight: 800;
-    margin-bottom: 36px;
-  } */
-
+  
   .industry-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
   }
 
   .industry-card {
-    background: #f6f8fd;
+    background: #ffffff;
     border-radius: 16px;
-    padding: 22px 14px;
-    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(3, 8, 23, 0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
   }
 
-  .industry-card .icon-circle {
-    width: 48px;
-    height: 48px;
+  .industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(33, 92, 255, 0.16);
+  }
+
+  .industry-card-image {
+    position: relative;
+    height: 150px;
+    /* overflow: hidden; */
+  }
+
+  .industry-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .industry-card:hover .industry-card-image img {
+    transform: scale(1.08);
+  }
+
+  .industry-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3, 8, 23, 0) 60%, rgba(3, 8, 23, 0.35) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .industry-card:hover .industry-card-image::after {
+    opacity: 1;
+  }
+
+  .industry-card-icon {
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background: #e9effe;
-    color: #215cff;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 19px;
+    box-shadow: 0 6px 14px rgba(3, 8, 23, 0.15);
+    z-index: 2;
+    transition: background 0.35s ease, transform 0.35s ease;
+  }
+
+  .industry-card-icon i {
+    font-size: 20px;
+    color: #215cff;
+    transition: color 0.35s ease;
+  }
+
+  .industry-card:hover .industry-card-icon {
+    background: #215cff;
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  .industry-card:hover .industry-card-icon i {
+    color: #ffffff;
+  }
+
+  .industry-card-body {
+    padding: 40px 22px 28px;
+    text-align: center;
+  }
+
+  .industry-card-title {
+    font-family: 'Sora', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #030817;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .industry-card-divider {
+    width: 32px;
+    height: 3px;
+    background: #215cff;
+    border-radius: 2px;
     margin: 0 auto 14px;
+    transition: width 0.35s ease;
   }
 
-  .industry-card h3 {
+  .industry-card:hover .industry-card-divider {
+    width: 52px;
+    background: #21c7f5;
+  }
+
+  .industry-card-desc {
     font-size: 13.5px;
-    font-weight: 700;
-    margin-bottom: 6px;
+    line-height: 1.6;
+    color: #5b6270;
   }
 
-  .industry-card p {
-    font-size: 11.5px;
-    line-height: 1.5;
-    color: #5a6478;
+  @media (max-width: 1100px) {
+    .industry-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
   }
 
-  @media (max-width: 900px) {
-    /* .industries { padding: 60px 0; } */
-    .industry-grid { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 860px) {
+
+
+    .industry-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .industry-card-image {
+      height: 130px;
+    }
+
+    .industry-card-body {
+      padding: 36px 16px 24px;
+    }
+
+    .industry-card-title {
+      font-size: 15.5px;
+    }
+
+    .industry-card-desc {
+      font-size: 13px;
+    }
   }
 
-  @media (max-width: 560px) {
-    .industry-grid { grid-template-columns: 1fr; }
+  @media (max-width: 520px) {
+
+    .industry-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      max-width: 420px;
+    }
+
+    .industry-card:hover {
+      transform: none;
+    }
+
+    .industry-card-image {
+      height: 160px;
+    }
+
+    .industry-card-icon {
+      width: 50px;
+      height: 50px;
+      bottom: -25px;
+    }
+
+    .industry-card-icon i {
+      font-size: 18px;
+    }
+
+    .industry-card-body {
+      padding: 34px 20px 26px;
+    }
+
+    .industry-card-title {
+      font-size: 16px;
+    }
+
+    .industry-card-desc {
+      font-size: 13.5px;
+    }
+
+    .industry-grid{
+      grid-template-columns: 1fr;
+    }
+
+    .industry-card-image{
+      height: 350px;
+    }
+  }
+
+  @media (hover: none) {
+    .industry-card:active {
+      transform: scale(0.98);
+    }
+
+    .industry-card:active .industry-card-icon {
+      background: #215cff;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    .industry-card:active .industry-card-icon i {
+      color: #ffffff;
+    }
+
+    .industry-card:active .industry-card-divider {
+      width: 52px;
+      background: #21c7f5;
+    }
   }
 
   /* ========================================================= */
@@ -1805,43 +1969,67 @@ Intelligent Biometric Attendance &amp; Identity Management Platform <br> One uni
     </div>
     <div class="industry-grid">
 
-      <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-building-columns"></i></div>
-        <h3>Government & Public Sector</h3>
-        <p>Secure identity and attendance for public sector operations.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
-        <h3>Educational Institutions</h3>
-        <p>Enable student enrollment, examination authentication, attendance management, and campus-wide biometric verification for schools, colleges, and universities.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-hospital"></i></div>
-        <h3>Certification & Assessment</h3>
-        <p>Support professional certification bodies and assessment organizations with secure candidate verification, attendance tracking, and examination integrity.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-city"></i></div>
-        <h3>Training & Skill Development</h3>
-        <p>Power biometric attendance and identity verification for training centres, coaching institutes, banking academies, and skill development programs.</p>
-      </div>
-
-      <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-industry"></i></div>
-        <h3>Field & Remote Operations</h3>
-        <p>Capture biometric attendance securely using Android smartphones and tablets, even in remote environments with offline synchronization capabilities.</p>
-      </div>
-
-      <!-- <div class="industry-card">
-        <div class="icon-circle"><i class="fa-solid fa-helmet-safety"></i></div>
-        <h3>Field Operations</h3>
-        <p>Enable mobile workforce attendance and tracking in the field.</p>
-      </div> -->
-
+  <div class="industry-card">
+    <div class="industry-card-image">
+      <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&q=80" alt="Government building">
+      <div class="industry-card-icon"><i class="fa-solid fa-landmark"></i></div>
     </div>
+    <div class="industry-card-body">
+      <div class="industry-card-title">Government &amp; Public Sector</div>
+      <div class="industry-card-divider"></div>
+      <div class="industry-card-desc">Secure identity and attendance management for public sector operations with complete transparency and accountability.</div>
+    </div>
+  </div>
+
+  <div class="industry-card">
+    <div class="industry-card-image">
+      <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400&q=80" alt="Educational institution">
+      <div class="industry-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+    </div>
+    <div class="industry-card-body">
+      <div class="industry-card-title">Educational Institutions</div>
+      <div class="industry-card-divider"></div>
+      <div class="industry-card-desc">Enable student enrollment, examination authentication, attendance tracking, and campus-wide verification for schools, colleges, and universities.</div>
+    </div>
+  </div>
+
+  <div class="industry-card">
+    <div class="industry-card-image">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="Certification document">
+      <div class="industry-card-icon"><i class="fa-solid fa-file-signature"></i></div>
+    </div>
+    <div class="industry-card-body">
+      <div class="industry-card-title">Certification &amp; Assessment</div>
+      <div class="industry-card-divider"></div>
+      <div class="industry-card-desc">Support professional certification bodies and assessment organizations with secure candidate verification, attendance tracking, and examination integrity.</div>
+    </div>
+  </div>
+
+  <div class="industry-card">
+    <div class="industry-card-image">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80" alt="Training session">
+      <div class="industry-card-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+    </div>
+    <div class="industry-card-body">
+      <div class="industry-card-title">Training &amp; Skill Development</div>
+      <div class="industry-card-divider"></div>
+      <div class="industry-card-desc">Power biometric attendance and identity verification for training centers, coaching institutes, banking academies, and skill development programs.</div>
+    </div>
+  </div>
+
+  <div class="industry-card">
+    <div class="industry-card-image">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&q=80" alt="Field operations worker">
+      <div class="industry-card-icon"><i class="fa-solid fa-person-military-pointing"></i></div>
+    </div>
+    <div class="industry-card-body">
+      <div class="industry-card-title">Field &amp; Remote Operations</div>
+      <div class="industry-card-divider"></div>
+      <div class="industry-card-desc">Capture biometric attendance securely using Android smartphones and tablets, even in remote environments with offline synchronization capabilities.</div>
+    </div>
+  </div>
+
+</div>
   </div>
 </section>
 
@@ -2266,36 +2454,37 @@ ScrollTrigger.create({
 
 
 
-     document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(ScrollTrigger);
+//      document.addEventListener("DOMContentLoaded", () => {
+//   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.matchMedia().add("(min-width: 1025px)", () => {
+//   gsap.matchMedia().add("(min-width: 1025px)", () => {
 
-    const steps = gsap.utils.toArray(".phone-step");
+//     const steps = gsap.utils.toArray(".phone-step");
 
-    gsap.set(steps.slice(1), {
-      y: 120,
-      autoAlpha: 0
-    });
+//     gsap.set(steps.slice(1), {
+//       y: 120,
+//       autoAlpha: 0
+//     });
 
-    gsap.to(steps.slice(1), {
-      y: 0,
-      autoAlpha: 1,
-      stagger: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".app-functions",
-        start: "center center",
-        end: "+=4000",
-        pin: true,
-        scrub: 1,
-        snap: 1 / (steps.length - 1)
-      }
-    });
+//     gsap.to(steps.slice(1), {
+//       y: 0,
+//       autoAlpha: 1,
+//       stagger: 1,
+//       ease: "none",
+//       scrollTrigger: {
+//         trigger: ".app-functions",
+//         start: "center center",
+//         end: "+=4000",
+//         pin: true,
+//         scrub: 1,
+//         snap: 1 / (steps.length - 1)
+//       }
+//     });
 
-  });
-});
+//   });
+// });
 </script>
 
 </body>
 </html>
+     
