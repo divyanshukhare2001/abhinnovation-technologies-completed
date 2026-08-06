@@ -1778,7 +1778,7 @@ h4 {
   z-index: 2;
   margin-top: 56px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
